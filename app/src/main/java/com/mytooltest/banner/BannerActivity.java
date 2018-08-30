@@ -31,7 +31,7 @@ public class BannerActivity extends AppCompatActivity {
         dataList.add(url01);
         dataList.add(url02);
         dataList.add(url03);
-        bannerView.initData(dataList);
+        bannerView.startBanner(dataList);
 
     }
 
@@ -40,7 +40,7 @@ public class BannerActivity extends AppCompatActivity {
         super.onResume();
 
         Log.d("BannerView", "onResume");
-        bannerView.startBanner();
+        bannerView.resumeBanner();
     }
 
     @Override

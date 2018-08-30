@@ -51,6 +51,8 @@ public class BannerViewMagic extends RelativeLayout implements View.OnTouchListe
 
     private int currentPos; // 当前位置
 
+    private boolean isLayoutSetUp; // 延后初始化
+
     private MyHandler mHandler;
 
     private class MyHandler extends Handler {
@@ -108,18 +110,13 @@ public class BannerViewMagic extends RelativeLayout implements View.OnTouchListe
         vp.setPageMargin(margin);
         vp.setOffscreenPageLimit(3);
 
-//        vp.setPageTransformer(true, (new AlphaPageTransformer()));
-        vp.setPageTransformer(true, (new ScaleInTransformer()));
-//        vp.setPageTransformer(true, (new AlphaPageTransformer(new ScaleInTransformer())));
-
-
         llIndication = findViewById(R.id.ll_indication);
     }
 
     /**
      * 添加图片和指示器
      */
-    public void initData(List<String> data) {
+    public void startBanner(List<String> data) {
 
         dataList = data;
 
@@ -157,26 +154,32 @@ public class BannerViewMagic extends RelativeLayout implements View.OnTouchListe
     /**
      * 启动轮播
      */
-    public void startBanner() {
-        startBanner(true);
+    public void resumeBanner() {
+        resumeBanner(true);
     }
 
     /**
      * 启动轮播
      */
-    public void startBanner(boolean loop) {
-        isLoop = loop;
+    public void resumeBanner(boolean loop) {
 
-        if (mHandler == null) {
-            mHandler = new MyHandler(getContext());
+        if (isLayoutSetUp) {
+
+            Log.d("BannerView", "resumeBanner");
+
+            isLoop = loop;
+
+            if (mHandler == null) {
+                mHandler = new MyHandler(getContext());
+            }
+
+            mHandler.removeCallbacksAndMessages(null);
+
+            if (isLoop) {
+                mHandler.sendEmptyMessageDelayed(BANNER_CHANGE, DELAY_MILLIS);
+            }
         }
 
-        if (isLoop) {
-            mHandler.removeCallbacksAndMessages(null);
-            mHandler.sendEmptyMessageDelayed(BANNER_CHANGE, DELAY_MILLIS);
-        } else {
-            mHandler.removeCallbacksAndMessages(null);
-        }
     }
 
     /**
@@ -333,13 +336,26 @@ public class BannerViewMagic extends RelativeLayout implements View.OnTouchListe
                 @Override
                 public void onLoadingComplete(String s, View view, Bitmap bitmap) {
 
-                    // 设置图片比例
-                    int vpWidth = vp.getWidth();
-                    int vpHeight = 160 * vpWidth / 351;
-                    LayoutParams vpLayoutParams = (RelativeLayout.LayoutParams) vp.getLayoutParams();
-                    vpLayoutParams.height = vpHeight;
-                    vpLayoutParams.width = vpWidth;
-                    vp.setLayoutParams(vpLayoutParams);
+                    // 延后初始化，初始化一次就可以
+                    if (!isLayoutSetUp) {
+                        // 设置图片比例
+                        int vpWidth = vp.getWidth();
+                        int vpHeight = 160 * vpWidth / 351;
+                        LayoutParams vpLayoutParams = (RelativeLayout.LayoutParams) vp.getLayoutParams();
+                        vpLayoutParams.height = vpHeight;
+                        vpLayoutParams.width = vpWidth;
+                        vp.setLayoutParams(vpLayoutParams);
+
+                        // vp.setPageTransformer(true, (new AlphaPageTransformer()));
+                        vp.setPageTransformer(true, (new ScaleInTransformer()));
+                        // vp.setPageTransformer(true, (new AlphaPageTransformer(new ScaleInTransformer())));
+
+                        llIndication.setVisibility(VISIBLE);
+
+                        // 初始化成功，开始轮播
+                        isLayoutSetUp = true;
+                        resumeBanner();
+                    }
 
                 }
 

@@ -16,8 +16,6 @@
         android:id="@+id/view_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
         android:gravity="center_vertical"/>
 
     <View
