@@ -38,4 +38,29 @@
         app:layout_constraintTop_toBottomOf="@id/btn_banner"
         android:text="Tab Layout"/>
 
+    <Button
+        android:id="@+id/btn_upmarquee"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_tab"
+        android:text="UP Marquee"/>
+
+    <Button
+        android:id="@+id/btn_upmarquee_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_upmarquee"
+        android:text="UP Marquee Recycler"/>
+
+    <Button
+        android:id="@+id/btn_circle_progress"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_upmarquee_recycler"
+        android:text="Circle Progress"/>
+
+
 </android.support.constraint.ConstraintLayout>

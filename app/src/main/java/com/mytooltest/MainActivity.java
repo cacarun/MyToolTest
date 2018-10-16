@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.View;
 
 import com.mytooltest.banner.BannerActivity;
+import com.mytooltest.circleprogress.CircleProgressActivity;
 import com.mytooltest.encryption.DTUploadCreditCardPhotoCmd;
 import com.mytooltest.encryption.UploadCreditCardPhotoTask;
+import com.mytooltest.marquee.UPMarqueeActivity;
+import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.tab.TabActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +41,32 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(intent);
             }
         });
+
+        findViewById(R.id.btn_upmarquee).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, UPMarqueeActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btn_upmarquee_recycler).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AutoPollActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+
+        findViewById(R.id.btn_circle_progress).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CircleProgressActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
 
 //        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
 //            @Override

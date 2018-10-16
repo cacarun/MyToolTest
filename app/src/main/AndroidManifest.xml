@@ -24,6 +24,9 @@
 
         <activity android:name=".banner.BannerActivity"/>
         <activity android:name=".tab.TabActivity"/>
+        <activity android:name=".marquee.UPMarqueeActivity"/>
+        <activity android:name=".marquee.recycler.AutoPollActivity"/>
+        <activity android:name=".circleprogress.CircleProgressActivity"/>
     </application>
 
 
