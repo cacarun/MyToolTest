@@ -10,6 +10,7 @@ import com.mytooltest.banner.BannerActivity;
 import com.mytooltest.circleprogress.CircleProgressActivity;
 import com.mytooltest.encryption.DTUploadCreditCardPhotoCmd;
 import com.mytooltest.encryption.UploadCreditCardPhotoTask;
+import com.mytooltest.gausblur.GausBlurActivity;
 import com.mytooltest.marquee.UPMarqueeActivity;
 import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.tab.TabActivity;
@@ -67,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.btn_gaus_blur).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, GausBlurActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
 
 //        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
 //            @Override
