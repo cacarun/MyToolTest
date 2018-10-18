@@ -14,8 +14,8 @@ import java.lang.ref.WeakReference;
 
 public class AutoPollRecyclerView extends RecyclerView {
 
-    private static final long TIME_AUTO_POLL = 16;
-//    private static final long TIME_AUTO_POLL = 2000;
+//    private static final long TIME_AUTO_POLL = 16;
+    private static final long TIME_AUTO_POLL = 2000;
     AutoPollTask autoPollTask;
     private boolean running; //表示是否正在自动轮询
     private boolean canRun;//表示是否可以自动轮询
@@ -37,9 +37,15 @@ public class AutoPollRecyclerView extends RecyclerView {
 
         @Override
         public void run() {
-            AutoPollRecyclerView recyclerView = mReference.get();
+            final AutoPollRecyclerView recyclerView = mReference.get();
             if (recyclerView != null && recyclerView.running && recyclerView.canRun) {
-                recyclerView.scrollBy(2, 2);
+
+                // 方法一
+//                recyclerView.scrollBy(100, 100);
+
+                // 方法二
+                ((AutoPollAdapter)recyclerView.getAdapter()).marqueeData();
+
 //                recyclerView.smoothScrollToPosition(recyclerView.pos++);
 
                 recyclerView.postDelayed(recyclerView.autoPollTask, TIME_AUTO_POLL);
