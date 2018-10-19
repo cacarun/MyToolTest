@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal">
-
+    android:orientation="vertical">
 
     <com.mytooltest.marquee.recycler.AutoPollRecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:background="@color/blue"
         app:layoutManager="LinearLayoutManager"/>
 
 </LinearLayout>

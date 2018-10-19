@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 
 import java.lang.ref.WeakReference;
@@ -43,7 +44,8 @@ public class AutoPollRecyclerView extends RecyclerView {
                 // 方法一
 //                recyclerView.scrollBy(100, 100);
 
-                // 方法二
+                // 方法二 有动画效果
+                Log.d("AutoPollRecyclerView", "run……");
                 ((AutoPollAdapter)recyclerView.getAdapter()).marqueeData();
 
 //                recyclerView.smoothScrollToPosition(recyclerView.pos++);

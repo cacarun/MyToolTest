@@ -23,10 +23,17 @@ public class AutoPollAdapter extends RecyclerView.Adapter<AutoPollAdapter.BaseVi
 
     public void marqueeData() {
 
+        if (mData == null || mData.size() == 0) {
+
+            return;
+        }
+
         String dd = mData.get(0);
         mData.remove(0);
         mData.add(dd);
+
         notifyItemRemoved(0);
+//        notifyDataSetChanged();
     }
 
     @Override
