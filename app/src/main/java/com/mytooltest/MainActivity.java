@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.mytooltest.anim.AnimActivity;
 import com.mytooltest.banner.BannerActivity;
 import com.mytooltest.circleprogress.CircleProgressActivity;
 import com.mytooltest.encryption.DTUploadCreditCardPhotoCmd;
@@ -15,7 +16,7 @@ import com.mytooltest.marquee.UPMarqueeActivity;
 import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.tab.TabActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "MainActivity";
 
@@ -25,56 +26,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        findViewById(R.id.btn_banner).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        findViewById(R.id.btn_banner).setOnClickListener(this);
 
-                Intent intent = new Intent(MainActivity.this, BannerActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        findViewById(R.id.btn_tab).setOnClickListener(this);
 
-        findViewById(R.id.btn_tab).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        findViewById(R.id.btn_upmarquee).setOnClickListener(this);
 
-                Intent intent = new Intent(MainActivity.this, TabActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.btn_upmarquee).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UPMarqueeActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.btn_upmarquee_recycler).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AutoPollActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        findViewById(R.id.btn_upmarquee_recycler).setOnClickListener(this);
 
 
-        findViewById(R.id.btn_circle_progress).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CircleProgressActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        findViewById(R.id.btn_circle_progress).setOnClickListener(this);
 
-        findViewById(R.id.btn_gaus_blur).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, GausBlurActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
+        findViewById(R.id.btn_gaus_blur).setOnClickListener(this);
+
+        findViewById(R.id.btn_anim).setOnClickListener(this);
+
+
 
 //        findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -106,11 +73,47 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onClick(View v) {
+
+        int id = v.getId();
+        switch (id) {
+
+            case R.id.btn_banner:
+
+                this.startActivity(new Intent(MainActivity.this, BannerActivity.class));
+                break;
+            case R.id.btn_tab:
+
+                this.startActivity(new Intent(MainActivity.this, TabActivity.class));
+                break;
+            case R.id.btn_upmarquee:
+
+                this.startActivity(new Intent(MainActivity.this, UPMarqueeActivity.class));
+                break;
+            case R.id.btn_upmarquee_recycler:
+
+                this.startActivity(new Intent(MainActivity.this, AutoPollActivity.class));
+                break;
+            case R.id.btn_circle_progress:
+
+                this.startActivity(new Intent(MainActivity.this, CircleProgressActivity.class));
+                break;
+            case R.id.btn_gaus_blur:
+
+                this.startActivity(new Intent(MainActivity.this, GausBlurActivity.class));
+                break;
+            case R.id.btn_anim:
+
+                this.startActivity(new Intent(MainActivity.this, AnimActivity.class));
+                break;
+
+        }
+    }
+
     private void compressImage() {
 
         byte[] mPhoto = null;
-
-
 
     }
 
@@ -146,9 +149,6 @@ public class MainActivity extends AppCompatActivity {
         UploadCreditCardPhotoTask task = new UploadCreditCardPhotoTask(cmd);
         task.execute();
     }
-
-
-
 
 
 
