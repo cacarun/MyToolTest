@@ -1,4 +1,4 @@
-package com.mytooltest.anim.view;
+package com.mytooltest.anim.view.circle;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -16,7 +16,7 @@ public class CircleView extends View {
 
     public CircleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        circle = new Circle(168, Color.RED, 0);
+        circle = new Circle(50, Color.RED, 0);
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
     }
@@ -27,7 +27,7 @@ public class CircleView extends View {
         super.onDraw(canvas);
         setElevation(circle.getElevation());
         mPaint.setColor(circle.getColor());
-        canvas.drawCircle(getMeasuredHeight() / 2, getMeasuredHeight() / 2, circle.getRaduis(), mPaint);
+        canvas.drawCircle(getMeasuredWidth() / 2, getMeasuredWidth() / 2, circle.getRaduis(), mPaint);
     }
 
     public void setCircle(Circle circle) {

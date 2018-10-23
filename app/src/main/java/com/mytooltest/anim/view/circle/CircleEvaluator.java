@@ -1,4 +1,4 @@
-package com.mytooltest.anim.view;
+package com.mytooltest.anim.view.circle;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Color;

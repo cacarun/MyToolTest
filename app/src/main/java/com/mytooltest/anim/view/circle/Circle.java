@@ -1,4 +1,4 @@
-package com.mytooltest.anim.view;
+package com.mytooltest.anim.view.circle;
 
 public class Circle {
 

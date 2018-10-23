@@ -2,6 +2,7 @@ package com.mytooltest.anim;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +11,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.mytooltest.R;
-import com.mytooltest.anim.view.Circle;
-import com.mytooltest.anim.view.CircleEvaluator;
-import com.mytooltest.anim.view.CircleView;
+import com.mytooltest.anim.view.circle.AnimCircleActivity;
+import com.mytooltest.anim.view.circle.Circle;
+import com.mytooltest.anim.view.circle.CircleEvaluator;
+import com.mytooltest.anim.view.circle.CircleView;
 
-public class AnimActivity extends AppCompatActivity {
+public class AnimActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -23,6 +25,7 @@ public class AnimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_anim);
 
 
+        findViewById(R.id.btn_circle).setOnClickListener(this);
 
     }
 
@@ -111,6 +114,16 @@ public class AnimActivity extends AppCompatActivity {
 //        animatorSet.setTarget(wrapper);
 //        // 启动动画
 //        animatorSet.start();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        int id = v.getId();
+        if (id == R.id.btn_circle) {
+
+            startActivity(new Intent(this, AnimCircleActivity.class));
+        }
     }
 
 

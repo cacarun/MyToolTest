@@ -3,4 +3,7 @@
 
     <dimen name="wallet_banner_page_margin">5dp</dimen>
 
+
+    <dimen name="anim_circle_radius">50dp</dimen>
+
 </resources>
