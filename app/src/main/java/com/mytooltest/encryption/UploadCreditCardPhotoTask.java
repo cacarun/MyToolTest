@@ -14,6 +14,9 @@ import android.os.AsyncTask;
 import android.util.Base64;
 import android.util.Log;
 
+import com.mytooltest.util.SDCardUtil;
+import com.mytooltest.util.ToolsForImage;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;

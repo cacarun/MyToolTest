@@ -6,10 +6,11 @@
     android:background="#F4A460">
 
 
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Test" />-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onShare"
+        android:text="Share" />
 
     <ImageView
         android:id="@+id/iv_result"

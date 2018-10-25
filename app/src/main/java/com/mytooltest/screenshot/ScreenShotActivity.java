@@ -3,10 +3,10 @@ package com.mytooltest.screenshot;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,14 +15,20 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.mytooltest.R;
 import com.mytooltest.util.DeviceUtil;
+import com.mytooltest.util.InviteUtil;
+import com.mytooltest.util.SDCardUtil;
+import com.mytooltest.util.ToolsForImage;
 
 public class ScreenShotActivity extends AppCompatActivity {
 
     private static final String TAG = "ScreenShotActivity";
+
+    private static final String FILE_PATH = SDCardUtil.MEDIA_PATH + "canvas_test.jpg";
 
     private int defaultWidth = 720; // 720 * 1080 防止从本地 mipmap or drawable 中加载的图片被studio处理过，导致图片宽高与坐标点的比例不符
 
@@ -39,6 +45,11 @@ public class ScreenShotActivity extends AppCompatActivity {
         drawNewBitmap(mIvResult, "cjw");
     }
 
+    public void onShare(View v) {
+
+//        InviteUtil.shareToSNS(this, "Share Image", "I have many texts. http://www.baidu.com ");
+        InviteUtil.shareToSNS(this, "Share Image", "I found a beautiful image. http://www.baidu.com ", FILE_PATH);
+    }
 
     /**
      *
@@ -74,15 +85,15 @@ public class ScreenShotActivity extends AppCompatActivity {
         Log.d(TAG, "bgWidth: " + bgWidth + " bgHeight: " + bgHeight);
 
         Bitmap photoResult = Bitmap.createBitmap(bgWidth, bgHeight, Bitmap.Config.ARGB_8888); // 建立一个空的Bitmap
-        Canvas canvas = new Canvas(photoResult); // 初始化画布绘制的图像到icon上
+        Canvas canvas = new Canvas(photoResult); // 初始化画布绘制的图像到 photoResult 上
 
         Paint photoPaint = new Paint(); // 建立画笔
         photoPaint.setDither(true); // 获取更清晰的图像采样，防抖动
         photoPaint.setFilterBitmap(true); // 过滤一下，抗剧齿
         photoPaint.setAntiAlias(true);
 
-        Rect src = new Rect(0, 0, bgWidth, bgHeight); // 创建一个指定的新矩形的坐标
-        Rect dst = new Rect(0, 0, bgWidth, bgHeight); // 创建一个指定的新矩形的坐标
+        Rect src = new Rect(0, 0, bgWidth, bgHeight); // 第一个 Rect 代表要绘制的 bitmap 区域
+        Rect dst = new Rect(0, 0, bgWidth, bgHeight); // 第二个 Rect 代表的是要将 bitmap 绘制在屏幕的什么地方
         canvas.drawBitmap(bg, src, dst, photoPaint); // 将photo 缩放或则扩大到dst使用的填充区photoPaint
 
 //        int begin = canvas.save(Canvas.ALL_SAVE_FLAG); canvas.restoreToCount(begin);
@@ -101,28 +112,59 @@ public class ScreenShotActivity extends AppCompatActivity {
         canvas.restore();
         canvas.save();
 
-        drawBitmap(canvas, bgHeight, bgWidth,95, 648, 316, 988); // 画图片
+        drawBitmap(canvas, photoPaint, bgHeight, bgWidth,95, 648, 316, 988); // 画图片
 
         imageView.setImageBitmap(photoResult);
 
-//        saveMyBitmap(this, photoResult);
+        ToolsForImage.saveBitmapToFile(photoResult, FILE_PATH); // 保存
     }
 
-    private void drawBitmap(Canvas canvas, int photoHeight, int photoWidth, int left, int top, int right, int bottom) {
 
-//        Bitmap thumb = BitmapFactory.decodeResource(getResources(), R.drawable.layer1);
-//        Bitmap drawCover = BitmapUtil.scaleBitmap(thumb, scale);
-//        canvas.drawBitmap(drawCover, 0, 0, null);
+    /**
+     * Test:
+     *
+      degree: 9
+     .markPoint(95, 648).markPoint(366, 692)
+     .markPoint(316, 988).markPoint(45, 943)
+     *
+     */
+    private void drawBitmap(Canvas canvas, Paint photoPaint, int photoHeight, int photoWidth, int left, int top, int right, int bottom) {
 
-//        float scale = LayerUtil.calculateFitScale(width, height, (int) layerRectF.width(), (int) layerRectF.height());
+        // 方法一：Canvas
+
+        Bitmap source = BitmapFactory.decodeResource(this.getResources(), R.drawable.layer1);
+
+        int sourceWidth = source.getWidth();
+        int sourceHeight = source.getHeight();
+
+        Log.d(TAG, "thumb width: " + sourceWidth + " thumb height: " + sourceHeight);
+
+//        canvas.drawBitmap(source, left, top, photoPaint);
+
+        int cx = (right - left) / 2 + left;
+        int cy = (bottom - top) / 2 + top;
+
+        float scale = (right - left) * 1f / sourceWidth;
+        Log.d(TAG, "thumb scale: " + scale);
+
+        // 定义矩阵对象
+        Matrix matrix = new Matrix();
+        // 缩放原图
+        matrix.postScale(scale, scale);
+
+        canvas.translate(left, top);
+
+        canvas.drawBitmap(source, matrix, photoPaint);
 
 
-        Rect myRect = new Rect(getRadio(left, photoWidth), getRadio(top, photoWidth),
-                getRadio(right, photoWidth), getRadio(bottom, photoWidth));
+        // 方法二： Drawable
 
-        Drawable drawable = getResources().getDrawable(R.drawable.layer1);
-        drawable.setBounds(myRect);
-        drawable.draw(canvas);
+//        Rect myRect = new Rect(getRadio(left, photoWidth), getRadio(top, photoWidth),
+//                getRadio(right, photoWidth), getRadio(bottom, photoWidth));
+//
+//        Drawable drawable = getResources().getDrawable(R.drawable.layer1);
+//        drawable.setBounds(myRect);
+//        drawable.draw(canvas);
     }
 
 

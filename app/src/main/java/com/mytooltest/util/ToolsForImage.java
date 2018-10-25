@@ -1,13 +1,19 @@
-package com.mytooltest.encryption;
+package com.mytooltest.util;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class ToolsForImage {
@@ -88,11 +94,41 @@ public class ToolsForImage {
 	}
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
-	protected static int sizeOf(Bitmap data) {
+	public static int sizeOf(Bitmap data) {
 		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB_MR1) {
 			return data.getRowBytes() * data.getHeight();
 		} else {
 			return data.getByteCount();
 		}
+	}
+
+	public static void saveBitmapToFile(Bitmap bitmap, String picPath) {
+		try {
+			File f = new File(picPath);
+			if (f.exists()) {
+				f.delete();
+			}
+
+			f.createNewFile();
+			FileOutputStream fOut = new FileOutputStream(f);
+			bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fOut);
+			fOut.flush();
+			fOut.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Bitmap drawableToBitmap(Drawable drawable) {
+		int width = drawable.getIntrinsicWidth();
+		int height = drawable.getIntrinsicHeight();
+		Bitmap bitmap = Bitmap.createBitmap(width, height, drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+		Canvas canvas = new Canvas(bitmap);
+		drawable.setBounds(0, 0, width, height);
+		drawable.draw(canvas);
+		return bitmap;
 	}
 }

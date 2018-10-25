@@ -1,7 +1,9 @@
-package com.mytooltest.encryption;
+package com.mytooltest.util;
 
 import android.os.Environment;
 import android.util.Log;
+
+import com.mytooltest.encryption.DtUtil;
 
 import java.io.File;
 
