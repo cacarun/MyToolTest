@@ -1,10 +1,18 @@
 package com.mytooltest.util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 public class DeviceUtil {
 
+
+    public static DisplayMetrics getScreenPix(Activity activity) {
+        DisplayMetrics displaysMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displaysMetrics);
+        return displaysMetrics;
+    }
 
     /** dp转px */
     public static int dip2px(Context context, float dipValue) {

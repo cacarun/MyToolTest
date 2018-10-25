@@ -6,4 +6,7 @@
 
     <dimen name="anim_circle_radius">50dp</dimen>
 
+
+    <dimen name="screen_shot_text_size">20dp</dimen>
+
 </resources>

@@ -30,6 +30,7 @@
         <activity android:name=".gausblur.GausBlurActivity"/>
         <activity android:name=".anim.AnimActivity"/>
         <activity android:name=".anim.view.circle.AnimCircleActivity"/>
+        <activity android:name=".screenshot.ScreenShotActivity"/>
     </application>
 
 
