@@ -131,4 +131,26 @@ public class ToolsForImage {
 		drawable.draw(canvas);
 		return bitmap;
 	}
+
+	public static Bitmap getCutBitmap(Bitmap bitmap, int width, int height) {
+		if (bitmap == null) {
+			return null;
+		}
+		int src_w = bitmap.getWidth() / 2;
+		int src_h = bitmap.getHeight() / 2;
+		int temp_width = width / 2;
+		int temp_height = height / 2;
+
+		int start_w = src_w - temp_width;
+		if (start_w < 0) {
+			start_w = 0;
+		}
+
+		int start_h = src_h - temp_height;
+		if (start_h < 0) {
+			start_h = 0;
+		}
+
+		return Bitmap.createBitmap(bitmap, start_w, start_h, width, height);
+	}
 }

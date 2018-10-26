@@ -1,5 +1,6 @@
 package com.mytooltest.util;
 
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.view.MotionEvent;
 
@@ -14,6 +15,12 @@ public class LayerUtil {
     public static float distance(MotionEvent event) {
         float x = event.getX(0) - event.getX(1);
         float y = event.getY(0) - event.getY(1);
+        return (float) Math.sqrt(x * x + y * y);
+    }
+
+    public static float distance(Point pointFrom, Point pointTo) {
+        float x = pointTo.x - pointFrom.x;
+        float y = pointTo.y - pointFrom.y;
         return (float) Math.sqrt(x * x + y * y);
     }
 

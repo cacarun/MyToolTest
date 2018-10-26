@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import android.widget.ImageView;
 import com.mytooltest.R;
 import com.mytooltest.util.DeviceUtil;
 import com.mytooltest.util.InviteUtil;
+import com.mytooltest.util.LayerUtil;
 import com.mytooltest.util.SDCardUtil;
 import com.mytooltest.util.ToolsForImage;
 
@@ -112,23 +115,22 @@ public class ScreenShotActivity extends AppCompatActivity {
         canvas.restore();
         canvas.save();
 
-        drawBitmap(canvas, photoPaint, bgHeight, bgWidth,95, 648, 316, 988); // 画图片
+        drawBitmap(canvas, photoPaint, bgHeight, bgWidth); // 画图片
 
         imageView.setImageBitmap(photoResult);
 
         ToolsForImage.saveBitmapToFile(photoResult, FILE_PATH); // 保存
     }
 
-
     /**
      * Test:
      *
-      degree: 9
+     degree: 9
      .markPoint(95, 648).markPoint(366, 692)
      .markPoint(316, 988).markPoint(45, 943)
      *
      */
-    private void drawBitmap(Canvas canvas, Paint photoPaint, int photoHeight, int photoWidth, int left, int top, int right, int bottom) {
+    private void drawBitmap(Canvas canvas, Paint photoPaint, int photoHeight, int photoWidth) {
 
         // 方法一：Canvas
 
@@ -141,18 +143,39 @@ public class ScreenShotActivity extends AppCompatActivity {
 
 //        canvas.drawBitmap(source, left, top, photoPaint);
 
-        int cx = (right - left) / 2 + left;
-        int cy = (bottom - top) / 2 + top;
+        int leftTopPosX = getRadio(95, photoWidth);
+        int leftTopPosY = getRadio(648, photoWidth);
+        int rightTopPosX = getRadio(366, photoWidth);
+        int rightTopPosY = getRadio(692, photoWidth);
+        int rightBottomPosX = getRadio(316, photoWidth);
+        int rightBottomPosY = getRadio(988, photoWidth);
+        int leftBottomPosX = getRadio(45, photoWidth);
+        int leftBottomPosY = getRadio(943, photoWidth);
 
-        float scale = (right - left) * 1f / sourceWidth;
-        Log.d(TAG, "thumb scale: " + scale);
+        // 路径剪裁
+        Path path = new Path();
+        path.lineTo(leftTopPosX, leftTopPosY);
+        path.lineTo(rightTopPosX, rightTopPosY);
+        path.lineTo(rightBottomPosX, rightBottomPosY);
+        path.lineTo(leftBottomPosX, leftBottomPosY);
+        canvas.clipPath(path);
+
+        // 计算出 canvas 方形宽高
+        float canvasCalWidth = LayerUtil.distance(new Point(95, 648), new Point(366, 692));
+        float canvasCalHeight = LayerUtil.distance(new Point(95, 648), new Point(45, 943));
+        Log.d(TAG, "thumb canvasCalWidth: " + canvasCalWidth + " canvasCalHeight: " + canvasCalHeight);
+        int sourceCanvasW = getRadio(canvasCalWidth, photoWidth);
+        int sourceCanvasH = getRadio(canvasCalHeight, photoWidth);
+        float sourceScale =  LayerUtil.calculateFitScale(sourceWidth, sourceHeight, sourceCanvasW, sourceCanvasH);
+        Log.d(TAG, "thumb sourceScale: " + sourceScale);
 
         // 定义矩阵对象
         Matrix matrix = new Matrix();
         // 缩放原图
-        matrix.postScale(scale, scale);
+        matrix.postScale(sourceScale, sourceScale);
+        matrix.postRotate(9);
 
-        canvas.translate(left, top);
+        canvas.translate(leftTopPosX, leftTopPosY);
 
         canvas.drawBitmap(source, matrix, photoPaint);
 
@@ -204,7 +227,7 @@ public class ScreenShotActivity extends AppCompatActivity {
         staticLayout.draw(canvas);
     }
 
-    private int getRadio(int pos, int photoWidth) {
+    private int getRadio(float pos, int photoWidth) {
         return Math.round(pos * photoWidth * 1.0f / defaultWidth);
     }
 
