@@ -9,4 +9,9 @@
 
     <dimen name="screen_shot_text_size">20dp</dimen>
 
+    <dimen name="item_height">220dp</dimen>
+
+    <dimen name="guide_rect_boder">3dp</dimen>
+
+
 </resources>

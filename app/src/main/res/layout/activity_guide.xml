@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg_default">
+
+        <Button
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click Me"/>
+
+        <View
+            style="@style/item_divide"
+            android:layout_height="60dp"
+            android:background="@color/bg_default" />
+
+        <!-- Earn Free布局 -->
+        <include
+            layout="@layout/layout_earn_free"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            style="@style/item_divide"
+            android:layout_height="20dp"
+            android:background="@color/bg_default" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:text="Daily Free Credits"
+                android:textColor="#838488"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:id="@+id/activity_earn_free_credits_daily_checkin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:background="@drawable/bg_new_item">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/icon_earn_checkin" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="43dp"
+                    android:textColor="#ff000000"
+                    android:layout_centerVertical="true"
+                    android:textSize="15dp"
+                    android:text="Daily Lucky" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/icon_blue_arrow" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ViewStub
+        android:id="@+id/guide_container_stub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/layout_guide_view"/>
+
+</RelativeLayout>

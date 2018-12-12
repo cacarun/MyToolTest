@@ -82,6 +82,22 @@
             app:layout_constraintTop_toBottomOf="@id/btn_anim"
             android:text="Canvas 绘制"/>
 
+        <Button
+            android:id="@+id/btn_xfermode"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_screenshot"
+            android:text="Canvas Xfermode"/>
+
+        <Button
+            android:id="@+id/btn_guide"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_xfermode"
+            android:text="新手引导"/>
+
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

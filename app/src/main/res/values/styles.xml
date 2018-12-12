@@ -15,4 +15,10 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
+    <style name="item_divide">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/gray_divide</item>
+    </style>
+
 </resources>
