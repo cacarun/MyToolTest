@@ -21,4 +21,9 @@
         <item name="android:background">@color/gray_divide</item>
     </style>
 
+    <style name="AppTranslucentOrigin">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

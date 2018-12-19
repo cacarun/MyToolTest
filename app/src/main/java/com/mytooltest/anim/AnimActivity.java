@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -41,16 +40,16 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
                 .start();
 
         // ValueAnimator.ofObject
-        ValueAnimator valueAnimator = ValueAnimator.ofObject(new CircleEvaluator(), startCircle, middleCircle, endCircle);
-        valueAnimator.setDuration(5000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Circle circle = (Circle) animation.getAnimatedValue();
-                circleView.setCircle(circle);
-            }
-        });
-        valueAnimator.start();
+//        ValueAnimator valueAnimator = ValueAnimator.ofObject(new CircleEvaluator(), startCircle, middleCircle, endCircle);
+//        valueAnimator.setDuration(5000);
+//        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator animation) {
+//                Circle circle = (Circle) animation.getAnimatedValue();
+//                circleView.setCircle(circle);
+//            }
+//        });
+//        valueAnimator.start();
 
     }
 
@@ -73,16 +72,24 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
 //        });
 //        valueAnimator.start();
 
+
         // ValueAnimator  JAVA
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 1);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(100, 20);
         valueAnimator.setDuration(300);
         valueAnimator.start();
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                // 动画更新过程中的动画值，可以根据动画值的变化来关联对象的属性，实现属性动画
-                float value = (float) animation.getAnimatedValue();
-                Log.d("ValueAnimator", "动画值：" + value);
+            public void onAnimationUpdate(ValueAnimator animator) {
+                // 当前动画值，即为当前宽度比例值
+                int currentValue = (Integer) animator.getAnimatedValue();
+                // 根据比例更改目标view的宽度
+                view.getLayoutParams().width = maxWidth * currentValue / 100;
+                view.requestLayout();
+
+                // 或者
+//                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
+//                layoutParams.width = maxWidth * currentValue / 100;
+//                view.setLayoutParams(layoutParams);
             }
         });
 
@@ -98,11 +105,13 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
 //        // 启动动画
 //        objectAnimator.start();
 
+
         // ObjectAnimator JAVA
 //        ObjectAnimator
 //                .ofFloat(view, "rotationY", 0f, 360f)
-//                .setDuration(2000)
+//                .setDuration(300)
 //                .start();
+
 
 
         // AnimatorSet XML

@@ -9,7 +9,7 @@ import android.view.View;
 import com.mytooltest.anim.AnimActivity;
 import com.mytooltest.banner.BannerActivity;
 import com.mytooltest.canvas.CanvasXfermodeActivity;
-import com.mytooltest.circleprogress.CircleProgressActivity;
+import com.mytooltest.progress.ProgressActivity;
 import com.mytooltest.encryption.DTUploadCreditCardPhotoCmd;
 import com.mytooltest.encryption.UploadCreditCardPhotoTask;
 import com.mytooltest.gausblur.GausBlurActivity;
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_circle_progress:
 
-                this.startActivity(new Intent(MainActivity.this, CircleProgressActivity.class));
+                this.startActivity(new Intent(MainActivity.this, ProgressActivity.class));
                 break;
             case R.id.btn_gaus_blur:
 

@@ -1,4 +1,4 @@
-package com.mytooltest.circleprogress;
+package com.mytooltest.progress.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -44,7 +44,7 @@ public class CircleProgress extends View {
     //是否使用动画
     protected boolean useAnimation;
     //动画的执行时间
-    protected int ANIMATION_DURATION = 1000;
+    protected int ANIMATION_DURATION = 5000;
     //是否使用渐变
     protected boolean useGradient;
     //边角是否是圆的

@@ -26,7 +26,7 @@
         <activity android:name=".tab.TabActivity"/>
         <activity android:name=".marquee.UPMarqueeActivity"/>
         <activity android:name=".marquee.recycler.AutoPollActivity"/>
-        <activity android:name=".circleprogress.CircleProgressActivity"/>
+        <activity android:name=".progress.ProgressActivity"/>
         <activity android:name=".gausblur.GausBlurActivity"/>
         <activity android:name=".anim.AnimActivity"/>
         <activity android:name=".anim.view.circle.AnimCircleActivity"/>

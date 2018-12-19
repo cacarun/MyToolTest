@@ -1,4 +1,4 @@
-package com.mytooltest.circleprogress;
+package com.mytooltest.progress.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

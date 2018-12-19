@@ -22,8 +22,7 @@
         android:layout_height="wrap_content"
         android:background="#333000"
         android:text="点我"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="20dp"/>
+        android:textColor="@android:color/white" />
 
 
 </LinearLayout>
