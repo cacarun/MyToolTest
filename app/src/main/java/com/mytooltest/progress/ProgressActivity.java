@@ -8,10 +8,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 
 import com.mytooltest.R;
 import com.mytooltest.progress.view.CircleProgress;
 import com.mytooltest.progress.view.RoundCornerProgressDialog;
+import com.mytooltest.progress.view.SaleProgressView;
 import com.mytooltest.progress.view.SportProgressView;
 
 public class ProgressActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,10 +32,30 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         circleProgress.setProgress(100);
 
 
-
-        // 条纹进度条 https://www.jianshu.com/p/f7e151c2cb57
+        // 条纹进度条 01 https://www.jianshu.com/p/f7e151c2cb57
         // 放置2张图片，一张作为背景（底，bottom），一张作为进度条图片，（cover）进度改变时，改变上面图片的宽度。
         findViewById(R.id.pop_dialog_btn).setOnClickListener(this);
+
+
+        // 条纹进度条 02 - 仿淘宝淘抢购进度条 https://www.jianshu.com/p/18240ea99f6e
+        final SaleProgressView saleProgressView = findViewById(R.id.spv);
+        SeekBar seekBar = findViewById(R.id.seek);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                saleProgressView.setTotalAndCurrentCount(100, i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
 
         // loading 动画 drawable + src

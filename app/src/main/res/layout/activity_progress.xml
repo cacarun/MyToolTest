@@ -53,6 +53,29 @@
             android:text="弹出 Dialog 展示条形进度条"
             android:layout_marginTop="20dp"/>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+
+            <com.mytooltest.progress.view.SaleProgressView
+                android:id="@+id/spv"
+                android:layout_width="220dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                app:nearOverText="@string/nearOverText"
+                app:overText="@string/overText" />
+
+            <SeekBar
+                android:id="@+id/seek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spv"
+                android:layout_marginTop="50dp"
+                android:max="100" />
+
+        </RelativeLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -125,9 +148,6 @@
             android:paddingBottom="30dp"
             android:thumb="@drawable/progress_arrow_head"
             android:layout_marginTop="20dp"/>
-
-        <!--android:progressDrawable="@drawable/arrow_progress_bg"-->
-
 
 
 
