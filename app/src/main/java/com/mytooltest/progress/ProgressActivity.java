@@ -12,6 +12,7 @@ import android.widget.SeekBar;
 
 import com.mytooltest.R;
 import com.mytooltest.progress.view.CircleProgress;
+import com.mytooltest.progress.view.ProgressXfermodeView;
 import com.mytooltest.progress.view.RoundCornerProgressDialog;
 import com.mytooltest.progress.view.SaleProgressView;
 import com.mytooltest.progress.view.SportProgressView;
@@ -81,6 +82,11 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
 //        ivLoadingCall.setBackgroundResource(R.drawable.drawable_anim_calling);
         AnimationDrawable animationDrawable = (AnimationDrawable) ivLoadingCall.getBackground();
         animationDrawable.start();
+
+
+        ProgressXfermodeView progressXfermodeView = findViewById(R.id.progress_xfermode_view);
+        progressXfermodeView.setProgress(50);
+
 
     }
 
