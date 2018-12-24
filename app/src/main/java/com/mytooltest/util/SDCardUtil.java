@@ -3,14 +3,17 @@ package com.mytooltest.util;
 import android.os.Environment;
 import android.util.Log;
 
+import com.mytooltest.DTApplication;
 import com.mytooltest.encryption.DtUtil;
 
 import java.io.File;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class SDCardUtil
 {
-	private static final String tag = "SDCardUtil";
+	private static final String TAG = "SDCardUtil";
 	
 	/** 存储卡 */
 	public static String SdCard = getSdCard();
@@ -45,5 +48,23 @@ public class SDCardUtil
 				Log.e("Exception", "Mail Support, create file failed:" + e);
 			}
 		}
+	}
+
+	public static void testPath() {
+		// SDCard
+		Log.d(TAG, Environment.getExternalStorageDirectory().toString());
+
+		// SDCard/Android/data/{package}/files
+		Log.d(TAG, DTApplication.getInstance().getExternalFilesDir("").getPath());
+		// SDCard/Android/data/{package}/cache
+		Log.d(TAG, DTApplication.getInstance().getExternalCacheDir().getPath());
+
+		// data/data/{package}/files
+		Log.d(TAG, DTApplication.getInstance().getFilesDir().getPath());
+		// data/data/{package}/cache
+		Log.d(TAG, DTApplication.getInstance().getCacheDir().getPath());
+
+		// data/data/{package}/app_cjw
+		Log.d(TAG, DTApplication.getInstance().getDir("cjw", MODE_PRIVATE).getPath());
 	}
 }

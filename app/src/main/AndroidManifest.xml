@@ -33,6 +33,7 @@
         <activity android:name=".screenshot.ScreenShotActivity"/>
         <activity android:name=".canvas.CanvasXfermodeActivity"/>
         <activity android:name=".guide.GuideActivity"/>
+        <activity android:name=".imageloader.ImageLoaderActivity"/>
     </application>
 
 
