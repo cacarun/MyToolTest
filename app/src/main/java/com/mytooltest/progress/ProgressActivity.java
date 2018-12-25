@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 import com.mytooltest.R;
 import com.mytooltest.progress.view.CircleProgress;
 import com.mytooltest.progress.view.ProgressXfermodeView;
+import com.mytooltest.progress.view.ProgressXfermodeView2;
 import com.mytooltest.progress.view.RoundCornerProgressDialog;
 import com.mytooltest.progress.view.SaleProgressView;
 import com.mytooltest.progress.view.SportProgressView;
@@ -87,6 +88,8 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         ProgressXfermodeView progressXfermodeView = findViewById(R.id.progress_xfermode_view);
         progressXfermodeView.setProgress(50);
 
+        ProgressXfermodeView2 progressXfermodeView2 = findViewById(R.id.view_progress_loading);
+        progressXfermodeView2.setProgress(100);
 
     }
 
