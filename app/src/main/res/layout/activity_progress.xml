@@ -50,7 +50,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="弹出 Dialog 展示条形进度条"
+            android:text="条形进度条"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:id="@+id/pop_dialog_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="条形进度条 + 指示头"
             android:layout_marginTop="20dp"/>
 
         <com.mytooltest.progress.view.ProgressXfermodeView

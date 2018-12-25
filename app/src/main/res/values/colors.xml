@@ -21,4 +21,6 @@
     <color name="app_theme_base_blue_pressed">#0083cd</color>
     <color name="app_theme_base_blue_disable">#88008ef0</color>
 
+    <color name="transparent">#00000000</color>
+
 </resources>

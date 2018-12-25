@@ -17,6 +17,7 @@ import com.mytooltest.progress.view.ProgressXfermodeView2;
 import com.mytooltest.progress.view.RoundCornerProgressDialog;
 import com.mytooltest.progress.view.SaleProgressView;
 import com.mytooltest.progress.view.SportProgressView;
+import com.mytooltest.progress.view.RoundCornerProgressDialog2;
 
 public class ProgressActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,6 +38,7 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         // 条纹进度条 01 https://www.jianshu.com/p/f7e151c2cb57
         // 放置2张图片，一张作为背景（底，bottom），一张作为进度条图片，（cover）进度改变时，改变上面图片的宽度。
         findViewById(R.id.pop_dialog_btn).setOnClickListener(this);
+        findViewById(R.id.pop_dialog_btn2).setOnClickListener(this);
 
 
         // 条纹进度条 02 - 仿淘宝淘抢购进度条 https://www.jianshu.com/p/18240ea99f6e
@@ -91,13 +93,22 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         ProgressXfermodeView2 progressXfermodeView2 = findViewById(R.id.view_progress_loading);
         progressXfermodeView2.setProgress(100);
 
+
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
+
             case R.id.pop_dialog_btn:
+
                 popRoundProgressDialog();
+                break;
+            case R.id.pop_dialog_btn2:
+
+                RoundCornerProgressDialog2 dialog = new RoundCornerProgressDialog2(this);
+                dialog.show();
                 break;
         }
     }
