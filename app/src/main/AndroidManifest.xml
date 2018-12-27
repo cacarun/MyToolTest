@@ -30,7 +30,8 @@
         <activity android:name=".gausblur.GausBlurActivity"/>
         <activity android:name=".anim.AnimActivity"/>
         <activity android:name=".anim.view.circle.AnimCircleActivity"/>
-        <activity android:name=".screenshot.ScreenShotActivity"/>
+        <activity android:name=".canvas.CanvasTestActivity"/>
+        <activity android:name=".canvas.PosterActivity"/>
         <activity android:name=".canvas.CanvasXfermodeActivity"/>
         <activity android:name=".guide.GuideActivity"/>
         <activity android:name=".imageloader.ImageLoaderActivity"/>

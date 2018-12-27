@@ -1,4 +1,4 @@
-package com.mytooltest.canvas.view;
+package com.mytooltest.canvas.xfermode;
 
 import android.content.Context;
 import android.graphics.Canvas;

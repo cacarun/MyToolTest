@@ -1,4 +1,4 @@
-package com.mytooltest.screenshot;
+package com.mytooltest.canvas;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,9 +27,9 @@ import com.mytooltest.util.LayerUtil;
 import com.mytooltest.util.SDCardUtil;
 import com.mytooltest.util.ToolsForImage;
 
-public class ScreenShotActivity extends AppCompatActivity {
+public class PosterActivity extends AppCompatActivity {
 
-    private static final String TAG = "ScreenShotActivity";
+    private static final String TAG = "PosterActivity";
 
     private static final String FILE_PATH = SDCardUtil.MEDIA_PATH + "canvas_test.jpg";
 
@@ -40,7 +40,7 @@ public class ScreenShotActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screenshot);
+        setContentView(R.layout.activity_poster);
 
         mIvResult = findViewById(R.id.iv_result);
 

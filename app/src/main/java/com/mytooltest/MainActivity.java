@@ -17,7 +17,7 @@ import com.mytooltest.imageloader.ImageLoaderActivity;
 import com.mytooltest.marquee.UPMarqueeActivity;
 import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.progress.ProgressActivity;
-import com.mytooltest.screenshot.ScreenShotActivity;
+import com.mytooltest.canvas.CanvasTestActivity;
 import com.mytooltest.tab.TabActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_anim).setOnClickListener(this);
 
-        findViewById(R.id.btn_screenshot).setOnClickListener(this);
+        findViewById(R.id.btn_canvas).setOnClickListener(this);
 
         findViewById(R.id.btn_xfermode).setOnClickListener(this);
 
@@ -122,9 +122,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 this.startActivity(new Intent(MainActivity.this, AnimActivity.class));
                 break;
-            case R.id.btn_screenshot:
+            case R.id.btn_canvas:
 
-                this.startActivity(new Intent(MainActivity.this, ScreenShotActivity.class));
+                this.startActivity(new Intent(MainActivity.this, CanvasTestActivity.class));
                 break;
             case R.id.btn_xfermode:
 

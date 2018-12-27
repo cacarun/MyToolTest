@@ -9,27 +9,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.mytooltest.canvas.view.EraserEffect
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
-
-        <com.mytooltest.canvas.view.EraserEffect2
+        <com.mytooltest.canvas.xfermode.EraserEffect
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"/>
 
-        <com.mytooltest.canvas.view.GameView
+        <com.mytooltest.canvas.xfermode.EraserEffect2
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"/>
+
+        <com.mytooltest.canvas.xfermode.GameView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"/>
 
-        <com.mytooltest.canvas.view.XfermodeTestView
+        <com.mytooltest.canvas.xfermode.XfermodeTestView
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:visibility="visible"/>
 
-        <com.mytooltest.canvas.view.XfermodeTestView2
+        <com.mytooltest.canvas.xfermode.XfermodeTestView2
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"/>
