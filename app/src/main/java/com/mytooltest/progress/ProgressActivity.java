@@ -38,6 +38,7 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
         // 条纹进度条 01 https://www.jianshu.com/p/f7e151c2cb57
         // 放置2张图片，一张作为背景（底，bottom），一张作为进度条图片，（cover）进度改变时，改变上面图片的宽度。
         findViewById(R.id.pop_dialog_btn).setOnClickListener(this);
+        // 条形进度条 + 指示头
         findViewById(R.id.pop_dialog_btn2).setOnClickListener(this);
 
 

@@ -169,7 +169,16 @@
             android:thumb="@drawable/progress_arrow_head"
             android:layout_marginTop="20dp"/>
 
-
+        <com.mytooltest.progress.view.RoundCornerImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/layer2"
+            android:scaleType="centerCrop"
+            app:corner_type="each_radius"
+            app:corner_lt_radius="10dp"
+            app:corner_rt_radius="10dp"
+            app:corner_rb_radius="10dp"
+            app:corner_lb_radius="10dp"/>
 
     </LinearLayout>
 

@@ -52,7 +52,6 @@ public class RoundCornerProgressDialog extends DialogFragment {
         mPercentTv = view.findViewById(R.id.percent_tv);
         mProgressIv = view.findViewById(R.id.p_cover_iv);
         mBotIv = view.findViewById(R.id.p_bot_iv);
-        mProgressIv.setRadiusDp(20);
 
         mRlProgressLayout = view.findViewById(R.id.progress_layout);
         mIvHead = view.findViewById(R.id.iv_head);

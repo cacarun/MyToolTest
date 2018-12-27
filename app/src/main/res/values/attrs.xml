@@ -44,4 +44,16 @@
         <attr name="isNeedAnim" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="corner_type" format="enum">
+            <enum name="single_radius" value="0"/>
+            <enum name="each_radius" value="1"/>
+        </attr>
+        <attr name="corner_radius" format="dimension"/>
+        <attr name="corner_lt_radius" format="dimension"/>
+        <attr name="corner_rt_radius" format="dimension"/>
+        <attr name="corner_rb_radius" format="dimension"/>
+        <attr name="corner_lb_radius" format="dimension"/>
+    </declare-styleable>
+
 </resources>

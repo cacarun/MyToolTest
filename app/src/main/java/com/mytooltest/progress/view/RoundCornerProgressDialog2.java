@@ -96,7 +96,6 @@ public class RoundCornerProgressDialog2 extends Dialog {
         ivProgressHead = findViewById(R.id.iv_progress_head);
 
         ivProgressFront = findViewById(R.id.iv_progress_front);
-        ivProgressFront.setRadiusDp(20);
 
         setCanceledOnTouchOutside(false);
     }
