@@ -50,6 +50,7 @@ public class ProgressXfermodeView extends View {
 
     private void init(Context context) {
         //初始化Xfermode的模式
+        // 源图像在运算时，只是在源图像所在区域与对应区域的目标图像做运算，所以目标图像与源图像不相交的地方是不会参与运算的
         mXfermode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
         //初始化画笔
         mBitPaint = new Paint(Paint.ANTI_ALIAS_FLAG);

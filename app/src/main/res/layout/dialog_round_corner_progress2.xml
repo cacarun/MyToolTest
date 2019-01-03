@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/wallet_task_new_progress_back" />
 
-        <com.mytooltest.progress.view.RoundCornerImageView
+        <com.mytooltest.view.RoundCornerImageView
             android:id="@+id/iv_progress_front"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

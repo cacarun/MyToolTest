@@ -18,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mytooltest.R;
+import com.mytooltest.view.RoundCornerImageView;
 
 import java.lang.ref.WeakReference;
 import java.util.Locale;

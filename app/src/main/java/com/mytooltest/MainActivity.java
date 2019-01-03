@@ -19,6 +19,7 @@ import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.progress.ProgressActivity;
 import com.mytooltest.canvas.CanvasTestActivity;
 import com.mytooltest.tab.TabActivity;
+import com.mytooltest.test.TestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_guide).setOnClickListener(this);
 
         findViewById(R.id.btn_image_loader).setOnClickListener(this);
+
+        findViewById(R.id.btn_test).setOnClickListener(this);
 
 
 
@@ -137,6 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_image_loader:
 
                 this.startActivity(new Intent(MainActivity.this, ImageLoaderActivity.class));
+                break;
+            case R.id.btn_test:
+
+                this.startActivity(new Intent(MainActivity.this, TestActivity.class));
                 break;
 
         }

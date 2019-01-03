@@ -59,7 +59,7 @@ public class XfermodeTestView2 extends View {
 //        canvas.drawBitmap(b,rect, rect, paint);
 
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
-//        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN)); // 源图像在运算时，只是在源图像所在区域与对应区域的目标图像做运算。所以目标图像与源图像不相交的地方是不会参与运算的
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT));
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
@@ -71,7 +71,7 @@ public class XfermodeTestView2 extends View {
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
 
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.XOR));
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+//        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.ADD));
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
 //        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DARKEN));

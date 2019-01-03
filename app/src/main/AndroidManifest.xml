@@ -35,6 +35,7 @@
         <activity android:name=".canvas.CanvasXfermodeActivity"/>
         <activity android:name=".guide.GuideActivity"/>
         <activity android:name=".imageloader.ImageLoaderActivity"/>
+        <activity android:name=".test.TestActivity"/>
     </application>
 
 

@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/shape_round_corner_bottom" />
 
-        <com.mytooltest.progress.view.RoundCornerImageView
+        <com.mytooltest.view.RoundCornerImageView
             android:id="@+id/p_cover_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

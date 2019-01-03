@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.mytooltest.R;
+import com.mytooltest.view.RoundCornerImageView;
 
 import java.lang.ref.WeakReference;
 

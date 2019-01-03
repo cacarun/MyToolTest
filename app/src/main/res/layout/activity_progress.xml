@@ -169,7 +169,7 @@
             android:thumb="@drawable/progress_arrow_head"
             android:layout_marginTop="20dp"/>
 
-        <com.mytooltest.progress.view.RoundCornerImageView
+        <com.mytooltest.view.RoundCornerImageView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:src="@drawable/layer2"
@@ -178,7 +178,31 @@
             app:corner_lt_radius="10dp"
             app:corner_rt_radius="10dp"
             app:corner_rb_radius="10dp"
-            app:corner_lb_radius="10dp"/>
+            app:corner_lb_radius="10dp"
+            android:layout_marginTop="20dp"/>
+
+        <com.mytooltest.view.RoundCenterCropShaderView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="20dp" />
+
+        <ImageView
+            android:id="@+id/iv_round_image_loader"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/iv_round_glide"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"/>
+
+
 
     </LinearLayout>
 
