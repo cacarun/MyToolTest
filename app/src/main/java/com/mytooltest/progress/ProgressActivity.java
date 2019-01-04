@@ -27,6 +27,7 @@ import com.mytooltest.util.DeviceUtil;
 import com.mytooltest.view.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.download.ImageDownloader;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
@@ -111,7 +112,8 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
 
         // ImageLoader 加载圆角图片
 //        String uriPath = "https://upload-images.jianshu.io/upload_images/5750764-f894fa2a8896a29f.jpg";
-        String uriPath = "drawable://" + R.drawable.layer2;
+//        String uriPath = "drawable://" + R.drawable.layer2;
+        String uriPath = ImageDownloader.Scheme.DRAWABLE.wrap("" + R.drawable.layer2);
         ivRoundImageLoader = findViewById(R.id.iv_round_image_loader);
         ImageLoaderWrapper.getImageLoader().displayImage(uriPath, ivRoundImageLoader, getDisplayImageOptions(), new ImageLoadingListener() {
 
