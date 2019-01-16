@@ -13,7 +13,9 @@ import com.mytooltest.util.DeviceUtil;
 
 /**
  * 圆角图片
+ * 缺点：锯齿
  */
+@Deprecated
 public class RoundCornerImageView extends android.support.v7.widget.AppCompatImageView {
 
     private static final int CORNER_TYPE_SINGLE = 0;

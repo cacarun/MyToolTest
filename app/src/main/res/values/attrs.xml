@@ -56,4 +56,36 @@
         <attr name="corner_lb_radius" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="CircularImageView">
+        <attr name="civ_border" format="boolean" />
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_background_color" format="color" />
+        <attr name="civ_shadow" format="boolean" />
+        <attr name="civ_shadow_color" format="color" />
+        <attr name="civ_shadow_radius" format="float" />
+        <attr name="civ_shadow_gravity">
+            <flag name="center" value="1" />
+            <flag name="top" value="2" />
+            <flag name="bottom" value="3" />
+            <flag name="start" value="4" />
+            <flag name="end" value="5" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="RoundCenterCropWithEachConnerShaderView">
+        <attr name="cornerRadius" format="dimension"/>
+        <attr name="corners" format="enum">
+            <enum name="top_left" value="1"/>
+            <enum name="top_right" value="2"/>
+            <enum name="bottom_left" value="4"/>
+            <enum name="bottom_right" value="8"/>
+            <enum name="top_all" value="3"/>
+            <enum name="bottom_all" value="12"/>
+            <enum name="left_all" value="5"/>
+            <enum name="right_all" value="10"/>
+            <enum name="all" value="15"/>
+        </attr>
+    </declare-styleable>
+
 </resources>
