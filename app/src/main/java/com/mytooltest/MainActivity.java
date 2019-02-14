@@ -14,6 +14,7 @@ import com.mytooltest.encryption.UploadCreditCardPhotoTask;
 import com.mytooltest.gausblur.GausBlurActivity;
 import com.mytooltest.guide.GuideActivity;
 import com.mytooltest.imageloader.ImageLoaderActivity;
+import com.mytooltest.mylist.MyListActivity;
 import com.mytooltest.marquee.UPMarqueeActivity;
 import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.progress.ProgressActivity;
@@ -53,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_guide).setOnClickListener(this);
 
         findViewById(R.id.btn_image_loader).setOnClickListener(this);
+
+        findViewById(R.id.btn_list).setOnClickListener(this);
 
         findViewById(R.id.btn_test).setOnClickListener(this);
 
@@ -140,6 +143,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_image_loader:
 
                 this.startActivity(new Intent(MainActivity.this, ImageLoaderActivity.class));
+                break;
+            case R.id.btn_list:
+
+                this.startActivity(new Intent(MainActivity.this, MyListActivity.class));
                 break;
             case R.id.btn_test:
 

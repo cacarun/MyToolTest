@@ -36,6 +36,9 @@
         <activity android:name=".guide.GuideActivity"/>
         <activity android:name=".imageloader.ImageLoaderActivity"/>
         <activity android:name=".test.TestActivity"/>
+        <activity android:name=".mylist.MyListActivity"/>
+        <activity android:name=".mylist.grouplist.GroupListActivity"/>
+        <activity android:name=".mylist.grouprecycler.GroupRecyclerActivity"/>
     </application>
 
 
