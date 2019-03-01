@@ -21,6 +21,7 @@ import com.mytooltest.progress.ProgressActivity;
 import com.mytooltest.canvas.CanvasTestActivity;
 import com.mytooltest.tab.TabActivity;
 import com.mytooltest.test.TestActivity;
+import com.mytooltest.thread.ThreadTestActivity;
 import com.mytooltest.webview.WebViewTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_list).setOnClickListener(this);
 
         findViewById(R.id.btn_webview).setOnClickListener(this);
+
+        findViewById(R.id.btn_thread).setOnClickListener(this);
 
         findViewById(R.id.btn_test).setOnClickListener(this);
 
@@ -154,6 +157,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_webview:
 
                 this.startActivity(new Intent(MainActivity.this, WebViewTestActivity.class));
+                break;
+            case R.id.btn_thread:
+
+                this.startActivity(new Intent(MainActivity.this, ThreadTestActivity.class));
                 break;
             case R.id.btn_test:
 

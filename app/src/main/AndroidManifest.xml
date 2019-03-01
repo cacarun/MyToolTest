@@ -42,6 +42,7 @@
         <activity android:name=".webview.WebViewTestActivity"/>
         <activity android:name=".webview.base.WebViewCommonActivity"/>
         <activity android:name=".webview.NumberAssistanceWebViewActivity"/>
+        <activity android:name=".thread.ThreadTestActivity"/>
     </application>
 
 
