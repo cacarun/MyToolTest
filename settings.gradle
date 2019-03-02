@@ -1,1 +1,1 @@
-include ':app', ':libgrouplist'
+include ':app', ':libgrouplist', ':compiler'
