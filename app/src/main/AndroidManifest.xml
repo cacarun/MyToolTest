@@ -43,6 +43,12 @@
         <activity android:name=".webview.base.WebViewCommonActivity"/>
         <activity android:name=".webview.NumberAssistanceWebViewActivity"/>
         <activity android:name=".thread.ThreadTestActivity"/>
+        <activity android:name=".touch.TouchTestActivity"/>
+        <activity android:name=".touch.TouchScrollWithViewPagerOutActivity"/>
+        <activity android:name=".touch.TouchScrollWithViewPagerInActivity"/>
+        <activity android:name=".touch.TouchViewPagerWithViewPagerInActivity"/>
+        <activity android:name=".touch.TouchCoordinatorActivity"/>
+
     </application>
 
 
