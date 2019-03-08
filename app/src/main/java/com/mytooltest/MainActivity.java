@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.mytooltest.alarm.AlarmTestActivity;
 import com.mytooltest.anim.AnimActivity;
 import com.mytooltest.banner.BannerActivity;
 import com.mytooltest.canvas.CanvasTestActivity;
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_thread).setOnClickListener(this);
 
         findViewById(R.id.btn_touch).setOnClickListener(this);
+
+        findViewById(R.id.btn_alarm).setOnClickListener(this);
 
         findViewById(R.id.btn_test).setOnClickListener(this);
 
@@ -168,6 +171,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_touch:
 
                 this.startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
+                break;
+            case R.id.btn_alarm:
+
+                this.startActivity(new Intent(MainActivity.this, AlarmTestActivity.class));
                 break;
             case R.id.btn_test:
 
