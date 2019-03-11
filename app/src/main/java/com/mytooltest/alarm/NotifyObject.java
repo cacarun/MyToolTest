@@ -19,11 +19,13 @@ class NotifyObject implements Serializable {
     public String subText;
     public String content;
     public String param;
-    public Long firstTime;
+
+    public Long firstTime; // 每个 Notify 里面一个定时
+    public List<Long> times = new ArrayList<>(); // 每个 Notify 里面多个定时
+
     public Class<? extends Activity> activityClass;
     @DrawableRes
     public int icon;
-    public List<Long> times = new ArrayList<>();
 
     public static byte[] toBytes(NotifyObject obj) throws IOException {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();

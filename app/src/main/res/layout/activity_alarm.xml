@@ -16,5 +16,11 @@
         android:layout_height="wrap_content"
         android:text="Alarm End" />
 
+    <Button
+        android:id="@+id/btn_timer_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alarm Timer Stop" />
+
 
 </LinearLayout>

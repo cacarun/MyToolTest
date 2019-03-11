@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.btn_alarm).setOnClickListener(this);
 
         findViewById(R.id.btn_banner).setOnClickListener(this);
 
@@ -66,8 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_thread).setOnClickListener(this);
 
         findViewById(R.id.btn_touch).setOnClickListener(this);
-
-        findViewById(R.id.btn_alarm).setOnClickListener(this);
 
         findViewById(R.id.btn_test).setOnClickListener(this);
 
@@ -112,6 +111,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id) {
 
+            case R.id.btn_alarm:
+
+                this.startActivity(new Intent(MainActivity.this, AlarmTestActivity.class));
+                break;
             case R.id.btn_banner:
 
                 this.startActivity(new Intent(MainActivity.this, BannerActivity.class));
@@ -171,10 +174,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_touch:
 
                 this.startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
-                break;
-            case R.id.btn_alarm:
-
-                this.startActivity(new Intent(MainActivity.this, AlarmTestActivity.class));
                 break;
             case R.id.btn_test:
 

@@ -6,11 +6,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+
+import com.mytooltest.util.SharedPreferencesUtil;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -54,8 +55,8 @@ public class NotificationUtil {
                         Log.d(TAG, "Alarm, notifyByAlarm firstTime > 0");
 
                         Map<String, Serializable> map = new HashMap<>();
-                        map.put("KEY_NOTIFY_ID", obj.type);
-                        map.put("KEY_NOTIFY", NotifyObject.to(obj));
+                        map.put(GlobalValues.KEY_NOTIFY_ID, obj.type);
+                        map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
                         AlarmTimerUtil.setAlarmTimer(context, ++count, obj.firstTime, GlobalValues.TIMER_ACTION, map);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -66,11 +67,11 @@ public class NotificationUtil {
                     if (time > 0) {
                         try {
 
-                            Log.d(TAG, "Alarm, notifyByAlarm times");
+                            Log.d(TAG, "Alarm, notifyByAlarm times...");
 
                             Map<String, Serializable> map = new HashMap<>();
-                            map.put("KEY_NOTIFY_ID", obj.type);
-                            map.put("KEY_NOTIFY", NotifyObject.to(obj));
+                            map.put(GlobalValues.KEY_NOTIFY_ID, obj.type);
+                            map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
                             AlarmTimerUtil.setAlarmTimer(context, ++count, time, GlobalValues.TIMER_ACTION, map);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -80,12 +81,9 @@ public class NotificationUtil {
             }
         }
 
-        SharedPreferences mPreferences = context.getSharedPreferences("SHARE_PREFERENCE_NOTIFICATION", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = mPreferences.edit();
-        edit.putInt("KEY_MAX_ALARM_ID", count);
-        edit.apply();
+        Log.d(TAG, "Alarm, notifyByAlarm SP KEY_MAX_ALARM_ID=" + count);
+        SharedPreferencesUtil.setKeyMaxAlarmId(count);
     }
-
 
     /**
      * 通知
@@ -126,7 +124,10 @@ public class NotificationUtil {
         PendingIntent pi = PendingIntent.getActivity(context, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         //版本兼容
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {//兼容Android8.0
+        Log.d(TAG, "Alarm, notifyMsg sdk version=" + Build.VERSION.SDK_INT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {//兼容 Android 8.0 26
+            Log.d(TAG, "Alarm, notifyMsg 版本 >= 8.0");
             String id = "my_channel_01";
             int importance = NotificationManager.IMPORTANCE_LOW;
             CharSequence name = "notice";
@@ -151,7 +152,8 @@ public class NotificationUtil {
                 builder.setSubText(obj.subText);
             }
             notification = builder.build();
-        } else if (Build.VERSION.SDK_INT >= 23) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // 23
+            Log.d(TAG, "Alarm, notifyMsg 版本 >= 6.0");
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
             builder.setContentTitle(obj.title)
                     .setContentText(contentText)
@@ -164,8 +166,8 @@ public class NotificationUtil {
                 builder.setSubText(obj.subText);
             }
             notification = builder.build();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN &&
-                Build.VERSION.SDK_INT <= Build.VERSION_CODES.LOLLIPOP_MR1) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) { // 16
+            Log.d(TAG, "Alarm, notifyMsg 版本 >= 4.1");
             Notification.Builder builder = new Notification.Builder(context);
             builder.setAutoCancel(true)
                     .setContentIntent(pi)
@@ -178,9 +180,15 @@ public class NotificationUtil {
                 builder.setSubText(obj.subText);
             }
             notification = builder.build();
+        } else {
+            Log.e(TAG, "Alarm, notifyMsg sdk ERROR!!!");
         }
-        if (notification != null) {
+
+        if (notification != null && mNotifyMgr != null) {
+            Log.d(TAG, "Alarm, notifyMsg show!");
             mNotifyMgr.notify(nid, notification);
+        } else {
+            Log.e(TAG, "Alarm, notifyMsg notify ERROR!!!");
         }
     }
 
@@ -194,18 +202,20 @@ public class NotificationUtil {
 
             NotificationManager mNotifyMgr =
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotifyMgr.cancelAll();
+            if (mNotifyMgr != null) {
+                mNotifyMgr.cancelAll();
+            }
 
-            SharedPreferences mPreferences = context.getSharedPreferences("SHARE_PREFERENCE_NOTIFICATION", Context.MODE_PRIVATE);
-            int max_id = mPreferences.getInt("KEY_MAX_ALARM_ID", 0);
+            int max_id = SharedPreferencesUtil.getKeyMaxAlarmId();
             for (int i = 1; i <= max_id; i++) {
+                Log.d(TAG, "Alarm, clearAllNotifyMsg SP KEY_MAX_ALARM_ID=" + i);
                 AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, i);
             }
-            //清除数据
-            mPreferences.edit().remove("KEY_MAX_ALARM_ID").apply();
+            // 清除数据
+            SharedPreferencesUtil.toRemove(SharedPreferencesUtil.KEY_MAX_ALARM_ID);
 
         } catch (Exception e) {
-            Log.e(TAG, "取消通知失败", e);
+            Log.e(TAG, "Alarm, 取消通知失败", e);
         }
     }
 

@@ -16,11 +16,12 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         Log.d(TAG, "Alarm, onReceive action=" + intent.getAction());
         if (GlobalValues.TIMER_ACTION.equals(intent.getAction())) {
-            String str = intent.getStringExtra("KEY_NOTIFY");
+            String str = intent.getStringExtra(GlobalValues.KEY_NOTIFY);
             NotifyObject obj = null;
             try {
                 obj = NotifyObject.from(str);
                 if (obj != null) {
+                    Log.d(TAG, "Alarm, onReceive start notify...");
                     NotificationUtil.notifyByAlarmByReceiver(context, obj); // 立即开启通知
                 }
             } catch (IOException e) {

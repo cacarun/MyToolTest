@@ -39,9 +39,9 @@ public class AlarmTimerUtil {
             return;
         }
 
-        Log.d(TAG, "Alarm, setAlarmTimer sending");
+        Log.d(TAG, "Alarm, setAlarmTimer sending sdk version=" + Build.VERSION.SDK_INT);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // MARSHMALLOW OR ABOVE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // MARSHMALLOW 23 OR ABOVE
 
             Log.d(TAG, "Alarm, 版本 >= 6.0");
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time, sender);
@@ -87,38 +87,38 @@ public class AlarmTimerUtil {
      * 设置周期性闹钟
      *
      */
-    public static void setRepeatingAlarmTimer(Context context, long firstTime,
-                                              long cycTime, String action, int AlarmManagerType) {
-        Intent myIntent = new Intent();
-        myIntent.setAction(action);
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, myIntent, 0);
-
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (alarm == null) {
-            return;
-        }
-
-        // param1：闹钟类型，param2：闹钟首次执行时间，param3：闹钟两次执行的间隔时间，param4：闹钟响应动作。
-        alarm.setRepeating(AlarmManagerType, firstTime, cycTime, sender);
-    }
+//    public static void setRepeatingAlarmTimer(Context context, long firstTime,
+//                                              long cycTime, String action, int AlarmManagerType) {
+//        Intent myIntent = new Intent();
+//        myIntent.setAction(action);
+//        PendingIntent sender = PendingIntent.getBroadcast(context, 0, myIntent, 0);
+//
+//        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        if (alarm == null) {
+//            return;
+//        }
+//
+//        // param1：闹钟类型，param2：闹钟首次执行时间，param3：闹钟两次执行的间隔时间，param4：闹钟响应动作。
+//        alarm.setRepeating(AlarmManagerType, firstTime, cycTime, sender);
+//    }
 
     /**
      * 设置定时闹钟
      *
      */
-    public static void setAlarmTimer(Context context, long cycTime,
-                                     String action, int AlarmManagerType) {
-        Intent myIntent = new Intent();
-        myIntent.setAction(action);
-
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, myIntent, 0);
-
-        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (alarm == null) {
-            return;
-        }
-
-        alarm.set(AlarmManagerType, cycTime, sender);
-    }
+//    public static void setAlarmTimer(Context context, long cycTime,
+//                                     String action, int AlarmManagerType) {
+//        Intent myIntent = new Intent();
+//        myIntent.setAction(action);
+//
+//        PendingIntent sender = PendingIntent.getBroadcast(context, 0, myIntent, 0);
+//
+//        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        if (alarm == null) {
+//            return;
+//        }
+//
+//        alarm.set(AlarmManagerType, cycTime, sender);
+//    }
 
 }
