@@ -1,5 +1,6 @@
 package com.mytooltest.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,16 +10,28 @@ import java.util.Date;
 
 public class ToolsForTime {
 
-    public static int getGapCount(long oldTime, long newTime) {
+    public static long dateToMillis(String date) {
+        try {
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            Date formatDate = format.parse(date);
+            return formatDate.getTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
-        Date startDate = new Date();
-        startDate.setTime(oldTime);
+    public static int getGapDays(long endTime, long beginTime) {
 
         Date endDate = new Date();
-        endDate.setTime(newTime);
+        endDate.setTime(endTime);
+
+        Date beginDate = new Date();
+        beginDate.setTime(beginTime);
 
         Calendar fromCalendar = Calendar.getInstance();
-        fromCalendar.setTime(startDate);
+        fromCalendar.setTime(beginDate);
         fromCalendar.set(Calendar.HOUR_OF_DAY, 0);
         fromCalendar.set(Calendar.MINUTE, 0);
         fromCalendar.set(Calendar.SECOND, 0);
