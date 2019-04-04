@@ -1,5 +1,6 @@
 package com.mytooltest.webview;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +18,7 @@ public class WebViewTestActivity extends AppCompatActivity implements View.OnCli
 
         findViewById(R.id.btn_show_normal).setOnClickListener(this);
         findViewById(R.id.btn_show_js).setOnClickListener(this);
+        findViewById(R.id.btn_show_js_bridge).setOnClickListener(this);
 
     }
 
@@ -30,6 +32,10 @@ public class WebViewTestActivity extends AppCompatActivity implements View.OnCli
         } else if (id == R.id.btn_show_js) {
 
             NumberAssistanceWebViewActivity.launch(this, "", "http://www.mypage.com");
+        } else if (id == R.id.btn_show_js_bridge) {
+
+            Intent intent = new Intent(this, WebViewJSBridgeTestActivity.class);
+            startActivity(intent);
         }
 
     }

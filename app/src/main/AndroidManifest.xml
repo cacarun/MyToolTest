@@ -49,6 +49,7 @@
         <activity android:name=".touch.TouchCoordinatorActivity"/>
         <activity android:name=".alarm.AlarmTestActivity"/>
         <activity android:name=".alarm.PendingTestActivity"/>
+        <activity android:name=".webview.WebViewJSBridgeTestActivity"/>
 
 
 
