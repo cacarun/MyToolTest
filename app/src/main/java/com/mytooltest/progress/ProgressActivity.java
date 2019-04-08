@@ -15,7 +15,7 @@ import android.widget.SeekBar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.mytooltest.R;
-import com.mytooltest.imageloader.ImageLoaderWrapper;
+import com.mytooltest.imageloader.loader.ImageLoaderWrapper;
 import com.mytooltest.progress.view.CircleProgress;
 import com.mytooltest.progress.view.ProgressXfermodeView;
 import com.mytooltest.progress.view.ProgressXfermodeView2;

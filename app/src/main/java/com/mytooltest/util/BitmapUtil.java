@@ -6,6 +6,7 @@ import android.graphics.Matrix;
 import android.util.Log;
 import android.view.View;
 
+import com.mytooltest.imageloader.loader.ImageLoaderWrapper;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.utils.DiskCacheUtils;
@@ -55,7 +56,7 @@ public class BitmapUtil {
      * 缓存的图片
      */
     public static Bitmap getBitmapFromUrlIfDownloaded(String url) {
-        File cachedPicFile = DiskCacheUtils.findInCache(url, com.mytooltest.imageloader.ImageLoaderWrapper.getImageLoader().getDiskCache());
+        File cachedPicFile = DiskCacheUtils.findInCache(url, ImageLoaderWrapper.getImageLoader().getDiskCache());
         if (cachedPicFile == null || !cachedPicFile.exists()) {
             return null;
         }
@@ -70,7 +71,7 @@ public class BitmapUtil {
      */
     public static void downloadBitmapIntoCache(final String imageUrl) {
 
-        com.mytooltest.imageloader.ImageLoaderWrapper.getImageLoader().loadImage(imageUrl, new SimpleImageLoadingListener() {
+        ImageLoaderWrapper.getImageLoader().loadImage(imageUrl, new SimpleImageLoadingListener() {
 
             @Override
             public void onLoadingFailed(String s, View view, FailReason failReason) {

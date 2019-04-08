@@ -33,7 +33,9 @@
         <activity android:name=".canvas.PosterActivity"/>
         <activity android:name=".canvas.CanvasXfermodeActivity"/>
         <activity android:name=".guide.GuideActivity"/>
-        <activity android:name=".imageloader.ImageLoaderActivity"/>
+        <activity android:name=".imageloader.ImageLoaderTestActivity"/>
+        <activity android:name=".imageloader.loader.ImageLoaderActivity"/>
+        <activity android:name=".imageloader.worker.ImageWorkerActivity"/>
         <activity android:name=".test.TestActivity"/>
         <activity android:name=".mylist.MyListActivity"/>
         <activity android:name=".mylist.grouplist.GroupListActivity"/>
