@@ -31,8 +31,14 @@ public class AlarmTimerUtil {
             }
         }
 
-        PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0); // 如果是广播
-//        PendingIntent sender = PendingIntent.getService(context, alarmId, myIntent, 0); // 如果是服务
+        // 如果是广播
+        myIntent.setClass(context, AlarmReceiver.class); // 8.0 需要显式调用，否则收不到广播
+        PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0);
+
+
+        // 如果是服务
+//        PendingIntent sender = PendingIntent.getService(context, alarmId, myIntent, 0);
+
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (alarmManager == null) {
@@ -71,8 +77,12 @@ public class AlarmTimerUtil {
         Intent myIntent = new Intent();
         myIntent.setAction(action);
 
-        PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0); // 如果是广播
-//        PendingIntent sender = PendingIntent.getService(context, alarmId, myIntent, 0); // 如果是服务
+        // 如果是广播
+        myIntent.setClass(context, AlarmReceiver.class);
+        PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0);
+
+        // 如果是服务
+//        PendingIntent sender = PendingIntent.getService(context, alarmId, myIntent, 0);
 
         AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         if (alarm == null) {

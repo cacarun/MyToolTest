@@ -85,6 +85,32 @@ public class NotificationUtil {
         SharedPreferencesUtil.setKeyMaxAlarmId(count);
     }
 
+//    public static void notifyByAlarm(Context context, NotifyObject obj) {
+//        if (obj == null) {
+//            return;
+//        }
+//
+//        if (obj.firstTime > 0) {
+//            try {
+//
+//                Log.d(TAG, "Alarm, notifyByAlarm firstTime > 0");
+//
+//                int eventType = obj.type;
+//
+//                // cancel last alarm
+//                AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, eventType);
+//
+//                Map<String, Serializable> map = new HashMap<>();
+//                map.put(GlobalValues.KEY_NOTIFY_ID, eventType);
+//                map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
+//                AlarmTimerUtil.setAlarmTimer(context, eventType, obj.firstTime, GlobalValues.TIMER_ACTION, map);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
     /**
      * 通知
      *
@@ -206,12 +232,12 @@ public class NotificationUtil {
                 mNotifyMgr.cancelAll();
             }
 
+            // 清除数据
             int max_id = SharedPreferencesUtil.getKeyMaxAlarmId();
             for (int i = 1; i <= max_id; i++) {
                 Log.d(TAG, "Alarm, clearAllNotifyMsg SP KEY_MAX_ALARM_ID=" + i);
                 AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, i);
             }
-            // 清除数据
             SharedPreferencesUtil.toRemove(SharedPreferencesUtil.KEY_MAX_ALARM_ID);
 
         } catch (Exception e) {

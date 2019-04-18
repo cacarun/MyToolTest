@@ -40,15 +40,12 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     /**
-     * 定时提醒
+     * 预埋所有时间，定时提醒
      */
     private void alarmTest() {
         long now = System.currentTimeMillis();
 //        long now = SystemClock.elapsedRealtime();
-//        long interval[] = {0, 10, 60, 3000, 6000, 12000, 30000, 50000, 60000, 100000};
         long interval[] = {5000, 10000, 15000, 20000};
-//        long interval[] = {10000, 20000, 30000, 40000, 50000, 60000};
-//        long interval[] = {40000, 80000, 120000, 160000, 200000};
         int count = 1;
         SimpleDateFormat smf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         Map<Integer, NotifyObject> notifyObjects = new HashMap<>();
@@ -75,9 +72,11 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     /**
-     * 某天之前每天提醒一次
+     * 某天之前每天提醒一次（预埋所有时间）
      */
-    private void alarmTest2(String endDate) {
+    private void alarmTest2() {
+        // 截止时间点
+        String endDate = "2019-03-18";
         // 当前时间点
         long nowMillis = System.currentTimeMillis();
         // yyyy-MM-dd
@@ -125,8 +124,10 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
         if (id == R.id.btn_alarm_start) {
 
             alarmTest();
-//            alarmTest2("2019-03-18");
+//            alarmTest2();
 
+
+            // 打印时间，方便查看
             tick = 0;
             if (task == null) {
                 Log.d(TAG, "Alarm, timer first new");
@@ -143,11 +144,21 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
 
         } else if (id == R.id.btn_alarm_end) {
 
-            NotificationUtil.clearAllNotifyMsg(this); // 取消所有通知 同时取消定时闹钟
+            // 取消所有通知 同时取消定时闹钟
+            NotificationUtil.clearAllNotifyMsg(this);
         } else if (id == R.id.btn_timer_stop) {
 
+            cancelTimer();
+        }
+    }
+
+    private void cancelTimer() {
+        // 取消打印时间
+        if (timer != null) {
             timer.cancel();
             timer = null;
+        }
+        if (task != null) {
             task = null;
         }
     }
@@ -156,8 +167,6 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
     protected void onDestroy() {
         super.onDestroy();
 
-        timer.cancel();
-        timer = null;
-        task = null;
+        cancelTimer();
     }
 }
