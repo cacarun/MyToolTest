@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-class NotifyObject implements Serializable {
+public class NotifyObject implements Serializable {
 
     public Integer type;
     public String title;

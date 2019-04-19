@@ -1,6 +1,7 @@
 package com.mytooltest.webview.util;
 
 
+import com.mytooltest.util.GsonUtil;
 import com.mytooltest.webview.data.ClientToJsBaseData;
 
 import java.security.KeyFactory;
@@ -91,9 +92,7 @@ public class JWTUtils {
     public static void main(String args[]) throws Exception {
 
        /* PublicKey publicKey1 = getPublicKey(publicKey);
-        String jwt ="eyJ0eXAiOiJKV1QiLCJhbGJSUzI1NiJ9.eyJwYXlsb2oiaXQgaXMgYSB0ZXN0IGRlbW8ifQ
-        .Chi_SQTUGHIzxSDy7XKMM4nLbDgoAfpoFYDh0GWRkqcl099dDeSTmLEaIe0KMk_F-2ja8YbkRKyISOmglvXH12Km6I5HvC81jInA25mmaMzwr
-        -6PIjomwTBuupCasJeXiI4cvXKcnamZ3PkI";
+        String jwt ="XXXXXXX";
         JWTVerifier verifier = new JWTVerifier(publicKey1);
         Map<String,Object> claims= verifier.verify(jwt);
         System.out.println(claims);*/

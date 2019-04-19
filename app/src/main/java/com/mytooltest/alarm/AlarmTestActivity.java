@@ -40,12 +40,13 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
     }
 
     /**
-     * 预埋所有时间，定时提醒
+     * 定时提醒（预埋所有时间）
      */
     private void alarmTest() {
         long now = System.currentTimeMillis();
 //        long now = SystemClock.elapsedRealtime();
-        long interval[] = {5000, 10000, 15000, 20000};
+//        long interval[] = {5000, 10000, 15000, 20000};
+        long interval[] = {10000, 20000, 35000, 55000};
         int count = 1;
         SimpleDateFormat smf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         Map<Integer, NotifyObject> notifyObjects = new HashMap<>();
@@ -117,29 +118,18 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+
     @Override
     public void onClick(View v) {
 
         int id = v.getId();
         if (id == R.id.btn_alarm_start) {
 
-            alarmTest();
-//            alarmTest2();
+//            alarmTest();
+            alarmTest2();
 
 
-            // 打印时间，方便查看
-            tick = 0;
-            if (task == null) {
-                Log.d(TAG, "Alarm, timer first new");
-                task = new TimerTask() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, "Alarm, tick=" + ++tick);
-                    }
-                };
-                timer = new Timer();
-                timer.schedule(task, 0, 1000);
-            }
+            startTimer();
 
 
         } else if (id == R.id.btn_alarm_end) {
@@ -149,6 +139,22 @@ public class AlarmTestActivity extends AppCompatActivity implements View.OnClick
         } else if (id == R.id.btn_timer_stop) {
 
             cancelTimer();
+        }
+    }
+
+    private void startTimer() {
+        // 打印时间，方便查看
+        tick = 0;
+        if (task == null) {
+            Log.d(TAG, "Alarm, timer first new");
+            task = new TimerTask() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "Alarm, tick=" + ++tick);
+                }
+            };
+            timer = new Timer();
+            timer.schedule(task, 0, 1000);
         }
     }
 
