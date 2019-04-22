@@ -57,7 +57,7 @@ public class NotificationUtil {
                         Map<String, Serializable> map = new HashMap<>();
                         map.put(GlobalValues.KEY_NOTIFY_ID, obj.type);
                         map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
-                        AlarmTimerUtil.setAlarmTimer(context, ++count, obj.firstTime, GlobalValues.TIMER_ACTION, map);
+                        AlarmTimerUtil.setAlarmTimer(context, ++count, obj.firstTime, GlobalValues.TIMER_ACTION, AlarmReceiver.class, map);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -72,7 +72,7 @@ public class NotificationUtil {
                             Map<String, Serializable> map = new HashMap<>();
                             map.put(GlobalValues.KEY_NOTIFY_ID, obj.type);
                             map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
-                            AlarmTimerUtil.setAlarmTimer(context, ++count, time, GlobalValues.TIMER_ACTION, map);
+                            AlarmTimerUtil.setAlarmTimer(context, ++count, time, GlobalValues.TIMER_ACTION, AlarmReceiver.class, map);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -85,31 +85,52 @@ public class NotificationUtil {
         SharedPreferencesUtil.setKeyMaxAlarmId(count);
     }
 
-//    public static void notifyByAlarm(Context context, NotifyObject obj) {
-//        if (obj == null) {
-//            return;
-//        }
-//
-//        if (obj.firstTime > 0) {
-//            try {
-//
-//                Log.d(TAG, "Alarm, notifyByAlarm firstTime > 0");
-//
-//                int eventType = obj.type;
-//
-//                // cancel last alarm
-//                AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, eventType);
-//
-//                Map<String, Serializable> map = new HashMap<>();
-//                map.put(GlobalValues.KEY_NOTIFY_ID, eventType);
-//                map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
-//                AlarmTimerUtil.setAlarmTimer(context, eventType, obj.firstTime, GlobalValues.TIMER_ACTION, map);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+    /**
+     * 通过定时闹钟发送通知
+     *
+     * @param context
+     * @param notifyObjectMap
+     */
+    public static void notifyByAlarmTest(Context context, Map<Integer, NotifyObject> notifyObjectMap) {
+        //将数据存储起来
+        int count = 0;
+
+        Set<Integer> keySet = notifyObjectMap.keySet();
+        for (Integer key0 : keySet) {
+            if (!notifyObjectMap.containsKey(key0)) {
+                break;
+            }
+
+            NotifyObject obj = notifyObjectMap.get(key0);
+            if (obj == null) {
+                break;
+            }
+
+            if (obj.firstTime > 0) {
+                try {
+
+                    int alarmId = obj.type;
+
+                    Map<String, Serializable> map = new HashMap<>();
+                    map.put(GlobalValues.KEY_NOTIFY_ID, alarmId);
+                    map.put(GlobalValues.KEY_NOTIFY, NotifyObject.to(obj));
+
+                    String actionWithAlarmId = GlobalValues.TIMER_ACTION + alarmId;
+                    Log.d(TAG, "Alarm, notifyByAlarmTest alarm time=" + obj.firstTime);
+                    Log.d(TAG, "Alarm, notifyByAlarmTest actionWithAlarmId=" + actionWithAlarmId);
+                    AlarmTimerUtil.setAlarmTimer(context, alarmId, obj.firstTime, actionWithAlarmId, AlarmReceiverTest.class, map);
+
+                    ++count;
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Log.d(TAG, "Alarm, notifyByAlarmTest SP KEY_MAX_PUSH_ALARM_ID=" + count);
+        SharedPreferencesUtil.setKeyMaxPushAlarmId(count);
+    }
 
     /**
      * 通知
@@ -236,9 +257,39 @@ public class NotificationUtil {
             int max_id = SharedPreferencesUtil.getKeyMaxAlarmId();
             for (int i = 1; i <= max_id; i++) {
                 Log.d(TAG, "Alarm, clearAllNotifyMsg SP KEY_MAX_ALARM_ID=" + i);
-                AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, i);
+                AlarmTimerUtil.cancelAlarmTimer(context, GlobalValues.TIMER_ACTION, AlarmReceiver.class, i);
             }
             SharedPreferencesUtil.toRemove(SharedPreferencesUtil.KEY_MAX_ALARM_ID);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Alarm, 取消通知失败", e);
+        }
+    }
+
+    /**
+     * 取消所有通知 同时取消定时闹钟
+     *
+     * @param context
+     */
+    public static void clearAllNotifyMsgTest(Context context) {
+        try {
+
+            NotificationManager mNotifyMgr =
+                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            if (mNotifyMgr != null) {
+                mNotifyMgr.cancelAll();
+            }
+
+            // 清除数据
+            int max_id = SharedPreferencesUtil.getKeyMaxPushAlarmId();
+            Log.d(TAG, "Alarm, clearAllNotifyMsgTest SP max_id=" + max_id);
+            for (int i = 1; i <= max_id; i++) {
+
+                String actionWithAlarmId = GlobalValues.TIMER_ACTION + i;
+                Log.d(TAG, "Alarm, clearAllNotifyMsgTest actionWithAlarmId=" + actionWithAlarmId);
+                AlarmTimerUtil.cancelAlarmTimer(context, actionWithAlarmId, AlarmReceiverTest.class, i);
+            }
+            SharedPreferencesUtil.toRemove(SharedPreferencesUtil.KEY_MAX_PUSH_ALARM_ID);
 
         } catch (Exception e) {
             Log.e(TAG, "Alarm, 取消通知失败", e);

@@ -23,4 +23,18 @@
         android:text="Alarm Timer Stop" />
 
 
+    <Button
+        android:id="@+id/btn_alarm_test_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Alarm Test Start" />
+
+    <Button
+        android:id="@+id/btn_timer_test_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alarm Timer Test Stop" />
+
+
 </LinearLayout>

@@ -23,6 +23,8 @@ public class SharedPreferencesUtil {
 
     public static final String KEY_MAX_ALARM_ID = "KEY_MAX_ALARM_ID";
 
+    public static final String KEY_MAX_PUSH_ALARM_ID = "KEY_MAX_PUSH_ALARM_ID";
+
 //    public static final String KEY_PUSH_INFO_ARRAY = "KEY_PUSH_INFO_ARRAY";
 
 
@@ -32,6 +34,14 @@ public class SharedPreferencesUtil {
 
     public static void setKeyMaxAlarmId(int keyMaxAlarmId) {
         prefs.edit().putInt(KEY_MAX_ALARM_ID, keyMaxAlarmId).apply();
+    }
+
+    public static int getKeyMaxPushAlarmId() {
+        return prefs.getInt(KEY_MAX_PUSH_ALARM_ID, 0);
+    }
+
+    public static void setKeyMaxPushAlarmId(int keyMaxAlarmId) {
+        prefs.edit().putInt(KEY_MAX_PUSH_ALARM_ID, keyMaxAlarmId).apply();
     }
 
 

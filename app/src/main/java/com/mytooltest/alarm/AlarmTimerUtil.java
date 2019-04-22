@@ -22,7 +22,7 @@ public class AlarmTimerUtil {
      * @param action
      * @param map     要传递的参数
      */
-    public static void setAlarmTimer(Context context, int alarmId, long time, String action, Map<String, Serializable> map) {
+    public static void setAlarmTimer(Context context, int alarmId, long time, String action, Class receiveClass, Map<String, Serializable> map) {
         Intent myIntent = new Intent();
         myIntent.setAction(action);
         if (map != null) {
@@ -32,7 +32,7 @@ public class AlarmTimerUtil {
         }
 
         // 如果是广播
-        myIntent.setClass(context, AlarmReceiver.class); // 8.0 需要显式调用，否则收不到广播
+        myIntent.setClass(context, receiveClass); // 8.0 需要显式调用，否则收不到广播
         PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0);
 
 
@@ -73,12 +73,12 @@ public class AlarmTimerUtil {
      * @param context
      * @param action
      */
-    public static void cancelAlarmTimer(Context context, String action, int alarmId) {
+    public static void cancelAlarmTimer(Context context, String action, Class receiveClass, int alarmId) {
         Intent myIntent = new Intent();
         myIntent.setAction(action);
 
         // 如果是广播
-        myIntent.setClass(context, AlarmReceiver.class);
+        myIntent.setClass(context, receiveClass);
         PendingIntent sender = PendingIntent.getBroadcast(context, alarmId, myIntent, 0);
 
         // 如果是服务

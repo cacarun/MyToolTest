@@ -63,6 +63,8 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".alarm.AlarmReceiverTest"
+            android:exported="false"/>
 
 
         <service
