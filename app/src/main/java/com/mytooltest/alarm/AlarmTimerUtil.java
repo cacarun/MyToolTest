@@ -90,6 +90,8 @@ public class AlarmTimerUtil {
         }
 
         alarm.cancel(sender);
+
+        sender.cancel(); // 不加这个的话，更新定时器时间就会有问题
     }
 
 
