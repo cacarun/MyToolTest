@@ -54,6 +54,7 @@
         <activity android:name=".alarm.AlarmTestActivity"/>
         <activity android:name=".alarm.PendingTestActivity"/>
         <activity android:name=".webview.WebViewJSBridgeTestActivity"/>
+        <activity android:name=".dialog.DialogTestActivity"/>
 
 
 

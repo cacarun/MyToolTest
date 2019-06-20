@@ -25,4 +25,18 @@
 
     <color name="divider">#E5E5E5</color>
 
+    <color name="color_gray_888888">#888888</color>
+    <color name="color_gray_666666">#666666</color>
+    <color name="color_gray_555555">#555555</color>
+    <color name="color_gray_333333">#333333</color>
+    <color name="color_gray_222222">#222222</color>
+    <color name="color_gray_f2f2f2">#F2F2F2</color>
+    <color name="color_gray_eeeeee">#EEEEEE</color>
+    <color name="color_gray_BBBBBB">#BBBBBB</color>
+    <color name="color_gray_999999">#999999</color>
+    <color name="color_gray_D8D8D8">#D8D8D8</color>
+
+    <color name="color_yellow_FB8920">#FB8920</color>
+    <color name="color_yellow_FF8424">#FF8424</color>
+
 </resources>

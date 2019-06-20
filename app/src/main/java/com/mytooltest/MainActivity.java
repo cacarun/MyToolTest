@@ -11,6 +11,7 @@ import com.mytooltest.anim.AnimActivity;
 import com.mytooltest.banner.BannerActivity;
 import com.mytooltest.canvas.CanvasTestActivity;
 import com.mytooltest.canvas.CanvasXfermodeActivity;
+import com.mytooltest.dialog.DialogTestActivity;
 import com.mytooltest.encryption.DTUploadCreditCardPhotoCmd;
 import com.mytooltest.encryption.UploadCreditCardPhotoTask;
 import com.mytooltest.gausblur.GausBlurActivity;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.btn_dialog).setOnClickListener(this);
 
         findViewById(R.id.btn_alarm).setOnClickListener(this);
 
@@ -110,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         int id = v.getId();
         switch (id) {
+
+            case R.id.btn_dialog:
+
+                this.startActivity(new Intent(MainActivity.this, DialogTestActivity.class));
+                break;
 
             case R.id.btn_alarm:
 

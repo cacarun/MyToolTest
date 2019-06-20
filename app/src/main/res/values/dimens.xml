@@ -14,4 +14,27 @@
     <dimen name="guide_rect_boder">3dp</dimen>
 
 
+    <dimen name="dialog_width">315dp</dimen>
+    <dimen name="dialog_flipper_img_width">215dp</dimen>
+    <dimen name="dialog_flipper_img_height">118dp</dimen>
+
+
+    <dimen name="Title_TextView_XXL">22dip</dimen>
+    <dimen name="Title_TextView_XL">19dip</dimen>
+    <dimen name="Title_TextView_L">18dip</dimen>
+    <dimen name="Title_TextView_B">17dip</dimen>
+    <dimen name="Title_TextView_M">16dip</dimen>
+    <dimen name="Title_TextView_S">15dp</dimen>
+
+    <dimen name="Text_TextView_XXXXXL">30dip</dimen>
+    <dimen name="Text_TextView_XL">20dip</dimen>
+    <dimen name="Text_TextView_L">16dip</dimen>
+    <dimen name="Text_TextView_B">15dip</dimen>
+    <dimen name="Text_TextView_M">14dip</dimen>
+    <dimen name="Text_TextView_S">13dip</dimen>
+    <dimen name="Text_TextView_SS">12dip</dimen>
+    <dimen name="Text_TextView_SSS">11dip</dimen>
+    <dimen name="Text_TextView_S4">10dip</dimen>
+
+
 </resources>

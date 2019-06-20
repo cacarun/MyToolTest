@@ -4,4 +4,9 @@
     <string name="nearOverText">即将售罄</string>
     <string name="overText">已售罄</string>
 
+    <string name="whatsapp">WhatsApp</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
+    <string name="more">More</string>
+
 </resources>

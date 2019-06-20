@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dialog_width"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/icon_close"
+        android:layout_gravity="right"
+        android:layout_marginBottom="15dp"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.mytooltest.view.RoundCornerImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wallet_task_new_guide"
+            app:corner_type="each_radius"
+            app:corner_lt_radius="8dp"
+            app:corner_rt_radius="8dp"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        android:background="@drawable/bg_round_bottom">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="You can make money with sharing Dingtone NOW!"
+            android:text="Test"
+            android:textColor="#222222"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Test"
+            android:textSize="15dp"
+            android:textColor="#222222"
+            android:layout_marginBottom="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+
+        <Button
+            android:id="@+id/btn_get_now"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="Get Now"
+            android:textColor="#ffffffff"
+            android:textSize="20dp"
+            android:background="@drawable/bg_round_orange"/>
+
+    </LinearLayout>
+
+</LinearLayout>
