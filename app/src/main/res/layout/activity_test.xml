@@ -5,6 +5,54 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1111111111"
+                android:textSize="40dp"/>
+
+            <Button
+                android:id="@+id/btn_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Click me"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="500dp"
+                android:text="9999999999"
+                android:gravity="bottom"
+                android:textSize="40dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/color_yellow_FB8920">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
+    </LinearLayout>
 
 </LinearLayout>
