@@ -21,6 +21,7 @@ import com.mytooltest.marquee.UPMarqueeActivity;
 import com.mytooltest.marquee.recycler.AutoPollActivity;
 import com.mytooltest.mylist.MyListActivity;
 import com.mytooltest.progress.ProgressActivity;
+import com.mytooltest.retrofit2_rxjava2_mvp.Retrofit2RxJava2MVPActivity;
 import com.mytooltest.tab.TabActivity;
 import com.mytooltest.test.TestActivity;
 import com.mytooltest.thread.ThreadTestActivity;
@@ -70,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_thread).setOnClickListener(this);
 
         findViewById(R.id.btn_touch).setOnClickListener(this);
+
+        findViewById(R.id.btn_Retrofit2RxJava2MVP).setOnClickListener(this);
+
+
 
         findViewById(R.id.btn_test).setOnClickListener(this);
 
@@ -183,6 +188,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 this.startActivity(new Intent(MainActivity.this, TouchTestActivity.class));
                 break;
+            case R.id.btn_Retrofit2RxJava2MVP:
+
+                this.startActivity(new Intent(MainActivity.this, Retrofit2RxJava2MVPActivity.class));
+                break;
+
+
+
             case R.id.btn_test:
 
                 this.startActivity(new Intent(MainActivity.this, TestActivity.class));

@@ -55,6 +55,7 @@
         <activity android:name=".alarm.PendingTestActivity"/>
         <activity android:name=".webview.WebViewJSBridgeTestActivity"/>
         <activity android:name=".dialog.DialogTestActivity"/>
+        <activity android:name=".retrofit2_rxjava2_mvp.Retrofit2RxJava2MVPActivity"/>
 
 
 
