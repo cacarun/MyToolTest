@@ -11,5 +11,12 @@
         android:text="点我"
         android:layout_margin="20dp"/>
 
+    <Button
+        android:id="@+id/btn_click2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="点我2"
+        android:layout_margin="20dp"/>
+
 
 </LinearLayout>

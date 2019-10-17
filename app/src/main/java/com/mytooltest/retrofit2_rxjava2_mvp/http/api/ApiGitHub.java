@@ -6,6 +6,7 @@ import com.mytooltest.retrofit2_rxjava2_mvp.http.result.BaseResult;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
@@ -20,6 +21,11 @@ public interface ApiGitHub {
 
     @GET("/repos/{owner}/{repo}/contributors")
     Observable<List<ContributorBean>> rawContributors(
+            @Path("owner") String owner,
+            @Path("repo") String repo);
+
+    @GET("/repos/{owner}/{repo}/contributors")
+    Call<List<ContributorBean>> raw2Contributors(
             @Path("owner") String owner,
             @Path("repo") String repo);
 }
