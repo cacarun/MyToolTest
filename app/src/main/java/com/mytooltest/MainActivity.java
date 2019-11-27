@@ -27,6 +27,7 @@ import com.mytooltest.tab.TabActivity;
 import com.mytooltest.test.TestActivity;
 import com.mytooltest.thread.ThreadTestActivity;
 import com.mytooltest.touch.TouchTestActivity;
+import com.mytooltest.uievent.UIEventTestActivity;
 import com.mytooltest.webview.WebViewTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
