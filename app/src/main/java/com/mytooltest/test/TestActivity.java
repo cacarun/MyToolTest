@@ -9,6 +9,7 @@ import com.mytooltest.R;
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "TestActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +26,9 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             + " valueAll=" + valueAll);
         int result1 = value1 ^ valueAll;
         Log.d("TestActivity", "result1=" + result1);
-
     }
+
+
 
     @Override
     public void onClick(View v) {

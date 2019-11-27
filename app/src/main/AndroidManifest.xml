@@ -43,6 +43,9 @@
         <activity android:name=".webview.base.WebViewCommonActivity"/>
         <activity android:name=".webview.NumberAssistanceWebViewActivity"/>
         <activity android:name=".thread.ThreadTestActivity"/>
+        <activity android:name=".uievent.UIEventTestActivity"/>
+        <activity android:name=".uievent.viewpager.VPScrollTestActivity"/>
+        <activity android:name=".uievent.measure.MeasureTestActivity"/>
     </application>
 
 

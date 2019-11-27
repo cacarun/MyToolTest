@@ -10,10 +10,10 @@ public class BirdLogProxy implements Flyable {
 
     @Override
     public void fly() {
-        System.out.println("Bird fly start...");
+        System.out.println("Log Bird fly start...");
 
         flyable.fly();
 
-        System.out.println("Bird fly end...");
+        System.out.println("Log Bird fly end...");
     }
 }

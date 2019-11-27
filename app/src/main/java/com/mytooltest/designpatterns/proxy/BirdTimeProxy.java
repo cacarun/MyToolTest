@@ -10,11 +10,12 @@ public class BirdTimeProxy implements Flyable {
 
     @Override
     public void fly() {
+        System.out.println("Fly time start ");
         long start = System.currentTimeMillis();
 
         flyable.fly();
 
         long end = System.currentTimeMillis();
-        System.out.println("Fly time = " + (end - start));
+        System.out.println("Fly time end total = " + (end - start));
     }
 }
