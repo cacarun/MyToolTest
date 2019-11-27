@@ -104,4 +104,11 @@
 
     </declare-styleable>
 
+    <declare-styleable name="RectangleLayout">
+        <!--宽度占比-->
+        <attr name="width_weight" format="integer"/>
+        <!--高度占比-->
+        <attr name="height_weight" format="integer"/>
+    </declare-styleable>
+
 </resources>

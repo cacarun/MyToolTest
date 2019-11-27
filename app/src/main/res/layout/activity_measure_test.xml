@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,18 +9,98 @@
         android:id="@+id/tv_measure_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello world"/>
+        android:text="hello world" />
 
-    <Button
-        android:id="@+id/btn_2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_3"
+        <com.mytooltest.uievent.measure.aspectratio.SquareImageView
+            android:layout_width="50dp"
+            android:layout_height="90dp"
+            android:background="#f00"/>
+
+<!--        <com.mytooltest.uievent.measure.aspectratio.SquareImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#00f"/>-->
+
+<!--        <com.mytooltest.uievent.measure.aspectratio.SquareImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#ff0"/>-->
+
+<!--        <com.mytooltest.uievent.measure.aspectratio.SquareImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#0ff"/>-->
+
+    </LinearLayout>
+
+    <com.mytooltest.uievent.measure.aspectratio.RatioFrameLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="#f00"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+    <com.mytooltest.uievent.measure.aspectratio.RectangleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#0f0"
+        app:width_weight="2"
+        app:height_weight="3">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:background="#f00" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@+id/tv1"
+            android:background="#00f" />
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tv1"
+            android:background="#ff0" />
+
+    </com.mytooltest.uievent.measure.aspectratio.RectangleLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test"/>
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <com.mytooltest.uievent.measure.aspectratio.RectangleLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#f00"/>
+
+        <com.mytooltest.uievent.measure.aspectratio.RectangleLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#0f0"/>
+
+        <com.mytooltest.uievent.measure.aspectratio.RectangleLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="#00f"/>
+
+    </LinearLayout>
 
 </LinearLayout>
