@@ -13,9 +13,9 @@ import android.webkit.ValueCallback;
 import android.webkit.WebView;
 
 import com.google.gson.JsonObject;
+import com.mytooltest.util.GsonUtil;
 import com.mytooltest.webview.base.WebViewCommonActivity;
 import com.mytooltest.webview.data.ClientForwardPageType;
-import com.mytooltest.webview.util.GsonUtil;
 import com.mytooltest.webview.util.JWTUtils;
 
 

@@ -19,6 +19,20 @@
             android:text="Submit"/>
 
         <Button
+            android:id="@+id/btn_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="Dialog Test"/>
+
+        <Button
+            android:id="@+id/btn_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="Alarm Test"/>
+
+        <Button
             android:id="@+id/btn_banner"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -89,7 +103,7 @@
             android:text="新手引导"/>
 
         <Button
-            android:id="@+id/btn_image_loader"
+            android:id="@+id/btn_image_loader_test"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="5dp"
@@ -122,6 +136,27 @@
             android:layout_height="50dp"
             android:layout_margin="5dp"
             android:text="UI Event"/>
+
+        <Button
+            android:id="@+id/btn_touch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="Touch Test"/>
+
+        <Button
+            android:id="@+id/btn_Retrofit2RxJava2MVP"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="Retrofit2 RxJava2 MVP Test"/>
+
+        <Button
+            android:id="@+id/btn_profiler_test"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="Profiler Test"/>
 
         <Button
             android:id="@+id/btn_test"

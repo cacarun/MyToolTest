@@ -1,4 +1,4 @@
-package com.mytooltest.webview.util;
+package com.mytooltest.util;
 
 
 import com.google.gson.Gson;

@@ -1,4 +1,4 @@
-package com.mytooltest.imageloader;
+package com.mytooltest.imageloader.loader;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

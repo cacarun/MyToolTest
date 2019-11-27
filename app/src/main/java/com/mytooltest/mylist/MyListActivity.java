@@ -8,6 +8,7 @@ import android.view.View;
 import com.mytooltest.R;
 import com.mytooltest.mylist.grouplist.GroupListActivity;
 import com.mytooltest.mylist.grouprecycler.GroupRecyclerActivity;
+import com.mytooltest.mylist.headerfooter.HeaderFooterListActivity;
 
 public class MyListActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,6 +20,7 @@ public class MyListActivity extends AppCompatActivity implements View.OnClickLis
 
         findViewById(R.id.btn_group_list).setOnClickListener(this);
         findViewById(R.id.btn_group_recycler).setOnClickListener(this);
+        findViewById(R.id.btn_header_footer_list).setOnClickListener(this);
 
     }
 
@@ -35,6 +37,10 @@ public class MyListActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_group_recycler:
 
                 this.startActivity(new Intent(this, GroupRecyclerActivity.class));
+                break;
+            case R.id.btn_header_footer_list:
+
+                this.startActivity(new Intent(this, HeaderFooterListActivity.class));
                 break;
         }
 
