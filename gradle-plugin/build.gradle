@@ -1,0 +1,66 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+    }
+}
+
+repositories {
+    mavenLocal()
+    google()
+    jcenter()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+// 使用 gradle 插件步骤：
+// 1）引入 maven 插件并配置 install 相关的属性
+// 2）执行 ./gradlew install 便会把插件安装在本地 maven 仓库
+// 3）在使用的地方
+//    a. 根目录 gradle 文件引入我们插件的 classpath 'com.mytooltest.plugin:myplugin:0.0.1'
+//    b. app 目录 gradle 文件加载插件 apply plugin: 'myplugin' （注意这里 myplugin 即是 myplugin.properties 文件的名字）
+// 4）查看插件命令
+//    a. 运行 ./gradlew tasks --all | grep mytask  就可以看到我们在 plugin 里新增的 task 了
+//    b. 运行 ./gradlew mytask  就可以执行 task 了
+// 5）调试插件
+//    a. 在 as 中新增一个 remote 配置
+//    b. 在执行 task 的时候增加下面的参数 ./gradlew app:mytask -Dorg.gradle.debug=true
+//    c. 之后在插件代码中打好断点，在 as 中点击 debug 按钮，就可以调试插件代码了
+// 6）DSL 查询地址
+//    a. gradle dsl 查询地址 https://docs.gradle.org/current/dsl/index.html
+//    b. android gradle plugin dsl 查询地址 http://google.github.io/android-gradle-dsl/current/
+install {
+    repositories.mavenInstaller {
+        pom.version = '0.0.1' // 配置插件版本号
+        pom.artifactId = 'myplugin' // 配置插件标识
+        pom.groupId = 'com.mytooltest.plugin' // 配置插件组织
+    }
+}
+
+// 插件打包发布：
+// 运行命令 ./gradlew uploadArchives
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // 设置插件的 GAV 参数
+            pom.version = '0.0.1'
+            pom.artifactId = 'myplugin'
+            pom.groupId = 'plugin'
+
+            // 发布到下面目录
+            repository(url: "mavenUrl")
+            // 相对位置
+            // repository(url: uri('../release'))
+        }
+    }
+}
+
+
