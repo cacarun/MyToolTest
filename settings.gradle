@@ -1,1 +1,1 @@
-include ':app', ':libgrouplist', ':compiler', ':gradle-plugin'
+include ':app', ':libgrouplist', ':compiler', ':gradle-plugin', ':architecture'
