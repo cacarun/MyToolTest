@@ -60,6 +60,8 @@
         <activity android:name=".dialog.DialogTestActivity"/>
         <activity android:name=".retrofit2_rxjava2_mvp.Retrofit2RxJava2MVPActivity"/>
         <activity android:name=".profiler_memory.ProfilerTestActivity" />
+        <activity android:name=".test.Test_Inflate_Activity" />
+        <activity android:name=".test.Test_Rect_Activity" />
 
 
         <receiver android:name=".alarm.AlarmReceiver">
