@@ -24,21 +24,21 @@ public class TestAlgorithmMain {
 //            System.out.print(i + " ");
 //        }
 
-        String test = "123";
-        int n = test.length();
-        for (int i = 0; i < n; i++) {
-
-            for (int j = i + 1; j <= n; j++) {
-
-                String str = "";
-                for (int index = i; index < j; index++) {
-                    str = str + test.charAt(index);
-                }
-                System.out.println(str);
-
-            }
-
-        }
+//        String test = "123";
+//        int n = test.length();
+//        for (int i = 0; i < n; i++) {
+//
+//            for (int j = i + 1; j <= n; j++) {
+//
+//                String str = "";
+//                for (int index = i; index < j; index++) {
+//                    str = str + test.charAt(index);
+//                }
+//                System.out.println(str);
+//
+//            }
+//
+//        }
 
 
 
@@ -49,6 +49,41 @@ public class TestAlgorithmMain {
 
     }
 
+
+    class TreeNode {
+        int value;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int value) {
+            this.value = value;
+        }
+    }
+
+    // 翻转二叉树
+    private TreeNode revNode(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode left = revNode(root.left);
+        TreeNode right = revNode(root.right);
+
+        root.left = right;
+        root.right = left;
+        return root;
+    }
+
+    private void printNode(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        System.out.printf("" + root.value);
+
+        printNode(root.left);
+        
+        printNode(root.right);
+    }
 
     private static void printTest(int[] arr) {
 
