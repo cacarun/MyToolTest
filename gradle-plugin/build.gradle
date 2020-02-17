@@ -21,78 +21,78 @@ dependencies {
     implementation localGroovy()
 }
 
-// 使用 gradle 插件步骤：
-
-// 1）引入 maven 插件并配置 install 相关的属性
-
-// 2）执行 ./gradlew install 便会把插件安装在本地 maven 仓库
-
-// 3）使用
-//    a. 根目录 gradle 文件引入我们插件的 classpath 'com.mytooltest.plugin:myplugin:0.0.1'
-//    b. app 目录 gradle 文件加载插件 apply plugin: 'myplugin' （注意这里 myplugin 即是 myplugin.properties 文件的名字）
-// 4）查看插件命令
-//    a. 运行 ./gradlew tasks --all | grep mytask  就可以看到我们在 plugin 里新增的 task 了
-//    b. 运行 ./gradlew mytask  就可以执行 task 了
-// 5）调试插件
-//    a. 在 as 中新增一个 remote 配置
-//    b. 在执行 task 的时候增加下面的参数 ./gradlew app:mytask -Dorg.gradle.debug=true
-//    c. 之后在插件代码中打好断点，在 as 中点击 debug 按钮，就可以调试插件代码了
-// 6）DSL 查询地址
-//    a. gradle dsl 查询地址 https://docs.gradle.org/current/dsl/index.html
-//    b. android gradle plugin dsl 查询地址 http://google.github.io/android-gradle-dsl/current/
-// 7）包
-//    compile 'com.mytooltest.plugin:myplugin:0.0.1'
-
-// 默认 install 会安装到本地 maven 仓库 .m2 目录
-install {
-    repositories.mavenInstaller {
-        pom.version = '0.0.1' // 配置插件版本号
-        pom.artifactId = 'myplugin' // 配置插件标识
-        pom.groupId = 'com.mytooltest.plugin' // 配置插件组织
-    }
-}
-
-
-// 插件发布：
-// 运行命令 ./gradlew uploadArchives
-// 上传到本地，也可以上传至私服
-// 使用
-// a. 根目录 gradle 文件 buildscript repositories 引入 maven { url uri('./release') }
-// b. 根目录 gradle 文件 buildscript dependencies 引入 classpath 'plugin:myplugin:0.0.1'
-// c. app 目录 gradle 文件加载插件 apply plugin: 'myplugin'
-// d. compile project(':gradle-plugin')
-uploadArchives {
-    repositories.mavenDeployer {
-        // 设置插件的 GAV 参数
-        pom.version = '0.0.1'
-        pom.artifactId = 'myplugin'
-        pom.groupId = 'com.mytooltest.plugin'
-
-        // 发布到下面目录
-        // repository(url: "mavenUrl")
-
-        //如果上传至私服，修改url为私服地址
-        // repository(url: "http://192.168.0.1:8000/nexus/content/repositories/snapshots") {
-        //     authentication(userName: "dev", password: "dev")
-        // }
-
-        // 相对位置
-        repository(url: uri('../release'))
-        // 或者
-        // repository(url:"file://D://Users/user2/.m2/repository/")
-    }
-}
-
-// 插件发布：也可以通过 maven-publish 方式发布
-// 运行命令 ./gradlew publishToMavenLocal
-//apply plugin: 'maven-publish'
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            artifact "D://lib/build/outputs/aar/xxlib-debug.aar"
-//            groupId "com.mytooltest.plugin"
-//            artifactId "myplugin"
-//            version "0.0.1"
-//        }
+//// 使用 gradle 插件步骤：
+//
+//// 1）引入 maven 插件并配置 install 相关的属性
+//
+//// 2）执行 ./gradlew install 便会把插件安装在本地 maven 仓库
+//
+//// 3）使用
+////    a. 根目录 gradle 文件引入我们插件的 classpath 'com.mytooltest.plugin:myplugin:0.0.1'
+////    b. app 目录 gradle 文件加载插件 apply plugin: 'myplugin' （注意这里 myplugin 即是 myplugin.properties 文件的名字）
+//// 4）查看插件命令
+////    a. 运行 ./gradlew tasks --all | grep mytask  就可以看到我们在 plugin 里新增的 task 了
+////    b. 运行 ./gradlew mytask  就可以执行 task 了
+//// 5）调试插件
+////    a. 在 as 中新增一个 remote 配置
+////    b. 在执行 task 的时候增加下面的参数 ./gradlew app:mytask -Dorg.gradle.debug=true
+////    c. 之后在插件代码中打好断点，在 as 中点击 debug 按钮，就可以调试插件代码了
+//// 6）DSL 查询地址
+////    a. gradle dsl 查询地址 https://docs.gradle.org/current/dsl/index.html
+////    b. android gradle plugin dsl 查询地址 http://google.github.io/android-gradle-dsl/current/
+//// 7）包
+////    compile 'com.mytooltest.plugin:myplugin:0.0.1'
+//
+//// 默认 install 会安装到本地 maven 仓库 .m2 目录
+//install {
+//    repositories.mavenInstaller {
+//        pom.version = '0.0.1' // 配置插件版本号
+//        pom.artifactId = 'myplugin' // 配置插件标识
+//        pom.groupId = 'com.mytooltest.plugin' // 配置插件组织
 //    }
 //}
+//
+//
+//// 插件发布：
+//// 运行命令 ./gradlew uploadArchives
+//// 上传到本地，也可以上传至私服
+//// 使用
+//// a. 根目录 gradle 文件 buildscript repositories 引入 maven { url uri('./release') }
+//// b. 根目录 gradle 文件 buildscript dependencies 引入 classpath 'plugin:myplugin:0.0.1'
+//// c. app 目录 gradle 文件加载插件 apply plugin: 'myplugin'
+//// d. compile project(':gradle-plugin')
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        // 设置插件的 GAV 参数
+//        pom.version = '0.0.1'
+//        pom.artifactId = 'myplugin'
+//        pom.groupId = 'com.mytooltest.plugin'
+//
+//        // 发布到下面目录
+//        // repository(url: "mavenUrl")
+//
+//        //如果上传至私服，修改url为私服地址
+//        // repository(url: "http://192.168.0.1:8000/nexus/content/repositories/snapshots") {
+//        //     authentication(userName: "dev", password: "dev")
+//        // }
+//
+//        // 相对位置
+//        repository(url: uri('../release'))
+//        // 或者
+//        // repository(url:"file://D://Users/user2/.m2/repository/")
+//    }
+//}
+//
+//// 插件发布：也可以通过 maven-publish 方式发布
+//// 运行命令 ./gradlew publishToMavenLocal
+////apply plugin: 'maven-publish'
+////publishing {
+////    publications {
+////        maven(MavenPublication) {
+////            artifact "D://lib/build/outputs/aar/xxlib-debug.aar"
+////            groupId "com.mytooltest.plugin"
+////            artifactId "myplugin"
+////            version "0.0.1"
+////        }
+////    }
+////}
