@@ -39,4 +39,5 @@
     <color name="color_yellow_FB8920">#FB8920</color>
     <color name="color_yellow_FF8424">#FF8424</color>
 
+    <color name="translucent_black">#61000000</color>
 </resources>

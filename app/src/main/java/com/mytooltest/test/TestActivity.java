@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mytooltest.R;
+import com.mytooltest.view.verifycode.VerifyCodeView;
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
+    VerifyCodeView verifyCodeView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,20 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
         findViewById(R.id.btn_test_rect).setOnClickListener(this);
         findViewById(R.id.btn_test_inflate).setOnClickListener(this);
+
+
+        verifyCodeView = findViewById(R.id.verify_code_view);
+        verifyCodeView.setInputCompleteListener(new VerifyCodeView.InputCompleteListener() {
+            @Override
+            public void inputComplete() {
+                Toast.makeText(TestActivity.this, "inputComplete: " + verifyCodeView.getEditContent(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void invalidContent() {
+
+            }
+        });
     }
 
     @Override
