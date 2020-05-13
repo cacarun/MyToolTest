@@ -64,10 +64,4 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-    <declare-styleable name="CircularActionMenu">
-        <attr name="cam_radius" format="dimension|reference"/>
-        <attr name="cam_angle" format="integer"/>
-    </declare-styleable>
-
-
 </resources>
