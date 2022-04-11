@@ -11,20 +11,24 @@
         android:layout_margin="5dp"
         android:text="Test Rect"/>
 
-    <Button
-        android:id="@+id/btn_test_inflate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Test Inflate"/>
+<!--    <Button-->
+<!--        android:id="@+id/btn_test_inflate"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:text="Test Inflate"/>-->
 
-    <com.mytooltest.view.verifycode.VerifyCodeView
-        android:id="@+id/verify_code_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="80dp"/>
+<!--    <com.mytooltest.view.verifycode.VerifyCodeView-->
+<!--        android:id="@+id/verify_code_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:layout_marginTop="80dp"/>-->
 
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
